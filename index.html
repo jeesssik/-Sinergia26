@@ -1,0 +1,3082 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>+ Sinergia 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Proyectos de Sinergia 2026" />
+  <meta name="keywords" content="Sinergia, 2026, Proyectos, Tecnología, Informática, Arte, Sociedad, Salud, Negocios
+    , ORT, ORT proyecto final" />
+  <link rel="icon" type="image/png" href="https://campus.ort.edu.ar/static/tmp/jquery-file-upload/thumbnail/mas.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Mukta", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    .banner-container {
+      background-color: #1d1d1b;
+      padding: 20px 0;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Asegurar que el banner mantenga siempre el color #1d1d1b */
+    :root[data-theme='light'] .banner-container,
+    :root[data-theme='dark'] .banner-container {
+      background-color: #1d1d1b !important;
+    }
+
+    #logo-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .button-55 {
+
+      border: 0.2px solid #ffffff;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      color: #007bff;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+
+    /* Colores específicos para cada botón */
+    .btn-sinergizado {
+      background-color: #3a3836;
+      /* Naranja */
+      color: white;
+    }
+
+    .btn-sinergizado:hover {
+      background-color: #676564;
+      color: white;
+    }
+
+    .btn-web {
+      background-color: #2196f3;
+      /* Azul */
+      color: white;
+    }
+
+    .btn-web:hover {
+      background-color: #87CEEB;
+      color: #fff;
+    }
+
+    .btn-servicios {
+      background-color: #a226b8;
+      /* Azul */
+      color: white;
+    }
+
+    .btn-servicios:hover {
+      background-color: #712080;
+      color: #fff;
+    }
+
+    .btn-bien-tangible {
+      background-color: #16b819;
+      /* Morado */
+      color: white;
+    }
+
+    .btn-bien-tangible:hover {
+      background-color: #1a761b;
+      color: #fff;
+    }
+
+    .btn-App {
+      background-color: #e91e63;
+      /* Rosa */
+      color: white;
+    }
+
+    .btn-App:hover {
+      background-color: #ba0944;
+    }
+
+    .btn-todos {
+      background-color: #607d8b;
+      /* Gris */
+      color: white;
+    }
+
+    .btn-todos:hover {
+      background-color: #4a5f69;
+    }
+
+    /* Botones dentro de las tarjetas */
+    .card-button {
+      background-color: transparent;
+      /* Por defecto */
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #buscador {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .container {
+      padding: 20px;
+      background-color: var(--bg);
+      transition: background-color 0.3s ease;
+    }
+
+    /* Estilo general del contenedor de tarjetas */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      /* Espacio entre tarjetas */
+      justify-content: center;
+      position: relative;
+      /* Asegurar contexto de apilamiento correcto */
+      z-index: 0;
+    }
+
+
+
+    /* Estilos para tarjetas */
+    .flip-card {
+      background-color: transparent;
+      width: 100%;
+      max-width: 292px;
+      /* Ajusta el tamaño según tus necesidades */
+      /*margin: 20px;*/
+      perspective: 1000px;
+      border-radius: 10px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      /*box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 6px,
+                rgba(0, 0, 0, 0.19) 0px 6px 12px;*/
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 440px;
+      text-align: center;
+      transition: transform 0.8s ease-in-out;
+      transform-style: preserve-3d;
+      border-radius: 10px;
+      transform-origin: center center;
+    }
+
+    .flip-card.girar .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card.girar {
+      z-index: 10;
+    }
+
+    /* Asegurar que cada tarjeta mantenga su propio contexto */
+    .flip-card:hover {
+      z-index: 5;
+    }
+
+    /* Contenedor de tarjetas con contexto de apilamiento */
+    .card-container>* {
+      position: relative;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 2;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .flip-card-front {
+      background-color: var(--card);
+      color: var(--text);
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 6px,
+        rgba(0, 0, 0, 0.19) 0px 6px 12px;
+    }
+
+    .flip-card-back {
+      background-color: var(--card-2);
+      /* Color de fondo más claro */
+      color: var(--text);
+      transform: rotateY(180deg);
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+      transform-origin: center center;
+      /* Asegurar que el contenido se mantenga dentro de los límites */
+      overflow: hidden;
+    }
+
+    .flip-card img {
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      /* Limita la altura de la imagen */
+      object-fit: cover;
+      /* Ajusta la imagen para cubrir el área */
+      border-radius: 10px;
+    }
+
+    .flip-card h2,
+    .flip-card p {
+      margin: 0;
+      padding: 10px;
+      font-family: "Mukta", sans-serif;
+      color: var(--text);
+    }
+
+    .flip-card h2 {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .flip-card p {
+      font-size: 1em;
+    }
+
+    /* Botón "Girar" */
+    .girar-button {
+      background-color: #ff9800;
+      border-radius: 100px;
+      box-shadow: rgba(163, 44, 187, 0.2) 0 -25px 18px -14px inset,
+        rgba(187, 44, 187, 0.15) 0 1px 2px, rgba(175, 44, 187, 0.15) 0 2px 4px,
+        rgba(187, 44, 177, 0.15) 0 4px 8px,
+        rgba(187, 44, 165, 0.15) 0 8px 16px,
+        rgba(154, 44, 187, 0.15) 0 16px 32px;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Mukta", sans-serif;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 250ms;
+      border: 0;
+      font-size: 16px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+
+    .girar-button:hover {
+      background-color: #f57c00;
+      box-shadow: rgba(163, 44, 187, 0.25) 0 -25px 18px -14px inset,
+        rgba(154, 44, 187, 0.25) 0 1px 2px, rgba(168, 44, 187, 0.25) 0 2px 4px,
+        rgba(149, 44, 187, 0.25) 0 4px 8px,
+        rgba(187, 44, 175, 0.25) 0 8px 16px,
+        rgba(161, 44, 187, 0.25) 0 16px 32px;
+      transform: scale(1.05) rotate(-1deg);
+    }
+
+    #scrollToTopButton {
+      /*background: url("/static/archivos/anim/1663176/2012790/top.png")*/
+      background: url("top.png") no-repeat center;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      background-size: cover;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: none;
+    }
+
+    #scrollToTopButton:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .modal {
+      display: none;
+      /* Initially hidden */
+      position: fixed;
+      z-index: 999;
+      /* Ensure it's above other content */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Semi-transparent background */
+      display: flex;
+      align-items: center;
+      /* Center vertically */
+      justify-content: center;
+      /* Center horizontally */
+    }
+
+    .modal-content {
+      background-color: #fbfbfb;
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 600px;
+      /* Maximum width of the modal */
+    }
+
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+
+
+    @media (max-width: 1024px) {
+      .navbar {
+        gap: 12px;
+      }
+
+      .navbar-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+      }
+
+      .button-55 {
+        width: 100%;
+        text-align: center;
+      }
+
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      #buscador {
+        width: 100%;
+        margin-top: 15px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .navbar-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .button-55 {
+        width: 100%;
+        text-align: center;
+      }
+
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+
+      #buscador {
+        width: 100%;
+        margin-top: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        justify-content: space-around;
+        flex-direction: column;
+      }
+
+      .navbar-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .button-55 {
+        font-size: 14px;
+        padding: 8px 15px;
+      }
+
+      .flip-card {
+        height: auto;
+      }
+
+      .girar-button {
+        bottom: 5px;
+        right: 5px;
+      }
+
+      #buscador {
+        width: 100%;
+        margin-top: 15px;
+      }
+    }
+
+    /* ====== PRO THEME (Tech) Overrides ====== */
+    :root {
+      --bg: #0b1020;
+      --card: #11182c;
+      --card-2: #0e1426;
+      --text: #e6edf3;
+      --muted: #9fb0c3;
+      --primary: #4cc3ff;
+      --primary-600: #2aa7e0;
+      --accent: #8b5cf6;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --ring: 0 0 0 2px rgba(76, 195, 255, 0.25);
+      --shadow-lg: 0 10px 30px rgba(0, 0, 0, .45);
+      --shadow-md: 0 6px 18px rgba(0, 0, 0, .35);
+    }
+
+    /* Base */
+    body {
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(76, 195, 255, .08), transparent),
+        radial-gradient(1000px 600px at 110% 10%, rgba(139, 92, 246, .07), transparent),
+        var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--card);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    /* El contenedor del banner mantiene siempre el color #1d1d1b */
+    .banner-container {
+      background: #1d1d1b !important;
+    }
+
+    .navbar {
+      background: rgba(17, 24, 44, .65);
+      backdrop-filter: saturate(160%) blur(8px);
+      -webkit-backdrop-filter: saturate(160%) blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      box-shadow: var(--shadow-md);
+    }
+
+    #buscador {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .08);
+      color: var(--text);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
+    }
+
+    #buscador::placeholder {
+      color: var(--muted);
+    }
+
+    #buscador:focus {
+      outline: none;
+      box-shadow: var(--ring);
+      border-color: var(--primary);
+    }
+
+    /* Buttons */
+    .button-55 {
+      background: linear-gradient(180deg, rgba(76, 195, 255, .12), rgba(76, 195, 255, .06));
+      border: 1px solid rgba(76, 195, 255, .35);
+      color: var(--text);
+      letter-spacing: .3px;
+    }
+
+    .button-55:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(76, 195, 255, .15);
+    }
+
+    .button-55.is-active {
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.14), 0 10px 20px rgba(76, 195, 255, 0.25);
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .button-55:active {
+      transform: translateY(0);
+    }
+
+    .btn-sinergizado {
+      background: linear-gradient(180deg, rgba(139, 92, 246, .18), rgba(139, 92, 246, .08));
+      border-color: rgba(139, 92, 246, .4);
+    }
+
+    .btn-sinergizado:hover {
+      background: linear-gradient(180deg, rgba(139, 92, 246, .24), rgba(139, 92, 246, .10));
+    }
+
+    .btn-web {
+      background: linear-gradient(180deg, rgba(76, 195, 255, .18), rgba(76, 195, 255, .08));
+      border-color: rgba(76, 195, 255, .45);
+    }
+
+    .btn-web:hover {
+      background: linear-gradient(180deg, rgba(135, 206, 235, .35), rgba(135, 206, 235, .20));
+    }
+
+    .btn-servicios {
+      background: linear-gradient(180deg, rgba(162, 38, 184, .20), rgba(162, 38, 184, .08));
+      border-color: rgba(162, 38, 184, .4);
+    }
+
+    .btn-bien-tangible {
+      background: linear-gradient(180deg, rgba(34, 197, 94, .20), rgba(34, 197, 94, .08));
+      border-color: rgba(34, 197, 94, .4);
+    }
+
+    .btn-App {
+      background: linear-gradient(180deg, rgba(244, 114, 182, .20), rgba(244, 114, 182, .08));
+      border-color: rgba(244, 114, 182, .35);
+    }
+
+    .btn-todos {
+      background: linear-gradient(180deg, rgba(148, 163, 184, .20), rgba(148, 163, 184, .08));
+      border-color: rgba(148, 163, 184, .35);
+    }
+
+    /* Cards */
+    .flip-card {
+      border-radius: 14px;
+      overflow: visible;
+      max-width: 320px;
+    }
+
+    .flip-card-inner {
+      box-shadow: var(--shadow-lg);
+      border-radius: 14px;
+      height: 480px;
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      border-radius: 14px;
+    }
+
+    .flip-card-front {
+      background: linear-gradient(180deg, var(--card), var(--card-2));
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, .06);
+      padding-top: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flip-card-back {
+      background: linear-gradient(180deg, var(--card-2), var(--card));
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, .06);
+      overflow: hidden;
+    }
+
+    .flip-card h2,
+    .flip-card h3 {
+      color: var(--text);
+      margin: 8px 0 2px;
+      font-size: clamp(18px, 2.2vw, 20px);
+    }
+
+    .flip-card p {
+      color: var(--muted);
+      margin: 6px 0 0;
+      font-size: clamp(13px, 1.9vw, 14px);
+    }
+
+    .line-1 {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .line-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .slogan {
+      opacity: .9;
+    }
+
+    .flip-card img {
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 10px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .flip-card .front-body {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .flip-card .meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .flip-card .badge {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255, 255, 255, .04);
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    .flip-card-back .content-scroll {
+      height: calc(100% - 48px);
+      overflow: auto;
+      padding-right: 6px;
+      text-align: left;
+      width: 100%;
+    }
+
+    .flip-card-back .content-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .flip-card-back .content-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, .12);
+      border-radius: 8px;
+    }
+
+    #descCard {
+      cursor: pointer;
+    }
+
+    /* Accent glows by category */
+    .Web .flip-card-front {
+      box-shadow: 0 0 0 1px rgba(76, 195, 255, .35), 0 8px 30px rgba(76, 195, 255, .18);
+    }
+
+    .Servicio .flip-card-front {
+      box-shadow: 0 0 0 1px rgba(162, 38, 184, .35), 0 8px 30px rgba(162, 38, 184, .18);
+    }
+
+    .Bien .flip-card-front {
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, .35), 0 8px 30px rgba(34, 197, 94, .18);
+    }
+
+    .App .flip-card-front {
+      box-shadow: 0 0 0 1px rgba(244, 114, 182, .35), 0 8px 30px rgba(244, 114, 182, .18);
+    }
+
+    .SinergizadoC.flip-card-front,
+    .SinergizadoC .flip-card-front {
+      box-shadow: 0 0 0 1px rgba(139, 92, 246, .35), 0 8px 30px rgba(139, 92, 246, .18);
+    }
+
+    /* CTA on card */
+    .girar-button {
+      background: linear-gradient(180deg, var(--primary), var(--primary-600));
+      box-shadow: 0 10px 25px rgba(76, 195, 255, .25);
+      border: 0;
+    }
+
+    .girar-button:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    /* Scroll to top */
+    #scrollToTopButton {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .35);
+    }
+
+    #scrollToTopButton:hover {
+      box-shadow: 0 12px 28px rgba(76, 195, 255, .25);
+    }
+
+    /* Container spacing */
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .flip-card {
+      width: 100%;
+      max-width: none;
+    }
+
+    /* Typography */
+    @supports (font-variation-settings: normal) {
+      body {
+        font-feature-settings: "calt" on, "liga" on;
+      }
+    }
+
+    /* Reduce harsh borders on modal */
+    .modal-content {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, .08);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .close {
+      color: var(--muted);
+    }
+
+    .close:hover {
+      color: var(--text);
+    }
+
+    /* Light/Dark toggle */
+    .theme-toggle {
+      min-width: 44px;
+      height: 40px;
+      padding: 0 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    /* Theme palettes */
+    :root[data-theme='dark'] {
+      --bg: #0b1020;
+      --card: #11182c;
+      --card-2: #0e1426;
+      --text: #e6edf3;
+      --muted: #9fb0c3;
+      --primary: #4cc3ff;
+      --primary-600: #2aa7e0;
+      --accent: #8b5cf6;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+    }
+
+    :root[data-theme='light'] {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --card-2: #f3f6fb;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #2563eb;
+      --primary-600: #1d4ed8;
+      --accent: #7c3aed;
+      --success: #16a34a;
+      --warning: #d97706;
+      --danger: #dc2626;
+    }
+
+    /* Ribbon Sinergizado (diagonal corner) */
+    .ribbon {
+      position: absolute;
+      top: 0;
+      right: -94%;
+      width: 210%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6px 0;
+      padding-left: 30%;
+      transform: rotate(45deg);
+      background: linear-gradient(90deg, rgba(139, 92, 246, .98), rgba(139, 92, 246, .85));
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .35);
+      border-top: 1px solid rgba(255, 255, 255, .22);
+      border-bottom: 1px solid rgba(0, 0, 0, .25);
+      z-index: 2;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    /* Responsive grid breakpoints */
+    @media (max-width: 1400px) {
+      .card-container {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .card-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .card-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Mobile layout tweaks */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .navbar-buttons {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .button-55 {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 16px;
+      }
+
+      #buscador {
+        width: 100%;
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 12px;
+      }
+    }
+
+    /* Portrait optimizations */
+    @media (orientation: portrait) {
+      .card-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flip-card-inner {
+        height: 400px;
+      }
+    }
+
+    @media (orientation: portrait) and (max-width: 480px) {
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+
+      .flip-card-inner {
+        height: 380px;
+      }
+    }
+
+    /* Landscape on small-height devices */
+    @media (orientation: landscape) and (max-height: 500px) {
+      .banner-container {
+        padding: 8px 0;
+      }
+
+      .flip-card-inner {
+        height: 360px;
+      }
+    }
+
+    /* Safe-area support (iOS notch) */
+    @supports (padding: max(0px)) {
+      body {
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="banner-container">
+      <!--<img src="/static/archivos/anim/1663176/2012790/4506.gif" alt="Logo" id="logo-image" />-->
+      <img src="4506.gif" alt="Logo" id="logo-image" />
+    </div>
+  </header>
+  <nav class="navbar">
+    <div class="navbar-buttons">
+      <button id="Sinergizado" class="button-55 btn-sinergizado" onclick="mostrarSin()">
+        Sinergizado
+      </button>
+      <button id="web" class="button-55 btn-web" onclick="mostrarCategoria('Web')">
+        Web
+      </button>
+      <button id="servicio" class="button-55 btn-servicios" onclick="mostrarCategoria('Servicio')">
+        Servicio
+      </button>
+      <button id="bien-tangible" class="button-55 btn-bien-tangible" onclick="mostrarCategoria('Bien tangible')">
+        Bien Tangible
+      </button>
+      <button id="App" class="button-55 btn-App" onclick="mostrarCategoria('App')">
+        App
+      </button>
+      <button id="Todos" class="button-55 btn-todos" onclick="mostrarTodos()">
+        Todos
+      </button>
+    </div>
+    <input type="text" id="buscador" placeholder="Buscar proyectos..." />
+    <button id="themeToggle" class="button-55 theme-toggle" aria-label="Cambiar tema">🌙</button>
+  </nav>
+  <main class="container">
+    <div id="resultado" class="card-container"></div>
+    <button id="scrollToTopButton" onclick="scrollToTop()"></button>
+  </main>
+
+  <script>
+    // THEME: init as soon as possible, read preference
+    (function initTheme() {
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { }
+    })();
+
+    window.onload = function () {
+      try {
+        var btn = document.getElementById('themeToggle');
+        var setIcon = function (theme) { btn.textContent = theme === 'dark' ? '🌙' : '☀️'; };
+        var current = document.documentElement.getAttribute('data-theme') || 'light';
+        setIcon(current);
+        btn.addEventListener('click', function () {
+          var cur = document.documentElement.getAttribute('data-theme') || 'light';
+          var next = cur === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) { }
+          setIcon(next);
+        });
+      } catch (e) { }
+
+      mostrarTodos();
+    };
+
+    // Truncate sin cortar palabras (devuelve string <= maxChars)
+    function safeTruncate(text, maxChars) {
+      try {
+        if (typeof text !== 'string') return '';
+        if (text.length <= maxChars) return text;
+        var sliced = text.slice(0, maxChars);
+        var lastSpace = sliced.lastIndexOf(' ');
+        if (lastSpace > 0) return sliced.slice(0, lastSpace);
+        return sliced; // si no hay espacio, devolvemos el corte limpio
+      } catch (e) { return text; }
+    }
+
+    //Girar tarjeta con boton
+    function girarTarjeta(button) {
+      const tarjeta = button.closest(".flip-card");
+      tarjeta.classList.toggle("girar");
+    }
+
+    // Simula los datos del archivo JSON
+
+    function setActiveButton(buttonId) {
+      document.querySelectorAll('.button-55').forEach(function (boton) {
+        var isActive = boton.id === buttonId;
+        boton.classList.toggle('is-active', isActive);
+        boton.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+    }
+
+    // Función para mostrar datos de una categoría
+
+    function mostrarCategoria(categoria) {
+      var resultadoDiv = document.getElementById("resultado");
+      resultadoDiv.innerHTML = "";
+
+      var categoriaData = datos.filter(function (item) {
+        return item.Impacto && item.Impacto.includes(categoria);
+      });
+
+      if (categoriaData.length > 0) {
+        categoriaData.forEach(function (item) {
+          var card = document.createElement("div");
+          card.classList.add("flip-card");
+          card.innerHTML = `
+                <div class="flip-card-inner ${item.Impacto ? item.Impacto.split(',')[0].trim() : ''}">
+                    <div class="flip-card-front ">
+                        ${item.sinergizado === "TRUE" ? '<span class="ribbon">Sinergizado</span>' : ''}
+                        <div >
+                            <img src="${getLogoSrc(item)}" alt="Avatar"
+                            onerror="if(!this.dataset.fallback){this.dataset.fallback='campus'; this.src='https://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/${item.id}.png';}">
+                        </div>
+                        <h3 class="line-1">${item.Nombre}</h3>
+                        <p class="line-2 slogan">${safeTruncate(item.Slogan || '', 90)}</p>
+                        <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
+                        ${Sinergizado(item)}
+                        </div>
+                    <div class="flip-card-back ${item.Impacto ? item.Impacto.split(',')[0].trim() : ''}">
+                        <div class="content-scroll">
+                        <h3 class="line-1">${item.Nombre}</h3>
+                        ${truncateDescription(item.Descripcion, 10, item)}
+
+                       <p>${truncateData(item.Integrantes, ',', 2, 'Integrantes')}
+                        <b>ODS:</b>  ${item.ODS} <br>
+                         <b>Categoría:</b>  ${item.Categoria}<br>
+                       ${truncateData(item.superTags, ',', 0, 'Tipo de Producción')}</p>
+                        <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+          resultadoDiv.appendChild(card);
+        });
+
+        var categoriaIdMap = {
+          "Web": "web",
+          "Servicio": "servicio",
+          "App": "App",
+          "Bien tangible": "bien-tangible"
+        };
+        setActiveButton(categoriaIdMap[categoria] || "Todos");
+      } else {
+        resultadoDiv.innerHTML =
+          "<p>No hay datos disponibles para esta categoría.</p>";
+        setActiveButton("Todos");
+      }
+    }
+
+    // Función para mostrar Sinergizados
+    function mostrarSin() {
+      var resultadoDiv = document.getElementById("resultado");
+      resultadoDiv.innerHTML = "";
+
+      var sinergizzados = datos.filter(function (item) {
+        return item.sinergizado == "TRUE";
+      });
+
+      if (sinergizzados.length > 0) {
+        sinergizzados.forEach(function (item) {
+          var card = document.createElement("div");
+          card.classList.add("flip-card");
+
+          card.innerHTML = `
+                <div class="flip-card-inner">
+                    <div class="flip-card-front SinergizadoC">
+                        <span class="ribbon">Sinergizado</span>
+                        <div >
+                            <img src="${getLogoSrc(item)}" alt="Avatar"
+                            onerror="if(!this.dataset.fallback){this.dataset.fallback='campus'; this.src='hhttps://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/${item.id}.png';}">
+                        </div>
+                        <h3 class="line-1">${item.Nombre}</h3>
+                        <p class="line-2 slogan">${safeTruncate(item.Slogan || '', 90)}</p>
+                        <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
+                        ${Sinergizado(item)}
+                        </div>
+                    <div class="flip-card-back ${item.Impacto ? item.Impacto.split(',')[0].trim() : ''}">
+                        <div class="content-scroll">
+                        <h3 class="line-1">${item.Nombre}</h3>
+                        ${truncateDescription(item.Descripcion, 10, item)}
+
+                       <p>${truncateData(item.Integrantes, ',', 2, 'Integrantes')}
+                        <b>ODS:</b>  ${item.ODS}<br>
+                         ${truncateData(item.superTags, '-', 0, 'Tipo de Producción')}</p>
+                        <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+          resultadoDiv.appendChild(card);
+        });
+      }
+
+      setActiveButton("Sinergizado");
+    }
+
+    // Función para mostrar todos los proyectos
+
+    function mostrarTodos() {
+      document.querySelectorAll(".button-55").forEach(function (boton) {
+        boton.classList.remove("is-active");
+        boton.setAttribute("aria-pressed", "false");
+      });
+
+      var botonSeleccionado = document.getElementById("Todos");
+      if (botonSeleccionado) {
+        botonSeleccionado.classList.add("is-active");
+        botonSeleccionado.setAttribute("aria-pressed", "true");
+      }
+      var resultadoDiv = document.getElementById("resultado");
+      resultadoDiv.innerHTML = ""; // Limpiar contenido anterior
+
+      var contador = 0;
+
+      datos.forEach(function (item) {
+
+        contador++;
+        console.log("Iteración número: " + contador);
+
+        var card = document.createElement("div");
+
+        card.classList.add("flip-card");
+        card.innerHTML = `
+                <div class="flip-card-inner ${item.Impacto ? item.Impacto.split(',')[0].trim() : ''}">
+                        <div class="flip-card-front">
+                            ${item.sinergizado === "TRUE" ? '<span class="ribbon">Sinergizado</span>' : ''}
+                            <div >
+                              <img src="${getLogoSrc(item)}" alt="Avatar"
+                              onerror="if(!this.dataset.fallback){this.dataset.fallback='campus'; this.src='https://campus.ort.edu.ar/static/tmp/jquery-file-upload/${item.id}.png';} else {this.onerror=null; this.src='https://recursos.ort.edu.ar/static/archivos/anim/1663176/2287590/${item.id}.png';}">
+                            </div>
+                        <h3 class="line-1">${item.Nombre}</h3>
+                        <p class="line-2 slogan">${safeTruncate(item.Slogan || '', 90)}</p>
+                        <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
+                        ${Sinergizado(item)}
+                        </div>
+                        <div class="flip-card-back ${item.Impacto ? item.Impacto.split(',')[0].trim() : ''}">
+                            <div class="content-scroll">
+                                <h3 class="line-1">${item.Nombre}</h3>
+                                ${truncateDescription(item.Descripcion, 10, item)}
+                                <p>${truncateData(item.Integrantes, ',', 2, 'Integrantes')}
+                                <b>ODS:</b>  ${item.ODS} <br>
+                                <b>Categoría:</b>  ${item.Categoria}<br>
+                                ${truncateData(item.superTags, '-', 0, 'Tipo de Producción')}</p>
+                                <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                `;
+        resultadoDiv.appendChild(card);
+      });
+
+      console.log("Total de iteraciones: " + contador); // Debe ser 256
+    }
+
+    //// truncar descripciones
+    function truncateDescription(description, wordCount, item) {
+      if (description == undefined) {
+        return `<p id="descCard"><b>Descripción:</b> Sin descripción</p><br>`;
+      } else {
+        if (description.length > 100) {
+          const words = description.split(" ");
+          if (words.length <= wordCount) {
+            return `<pid="descCard"><b>Descripción:</b> ${description}</p><br>`;
+          }
+          let truncatedWords = words.slice(0, wordCount);
+          truncatedWords = truncatedWords.join(" ");
+
+          return `<p onclick="mostrarDescripcionCompleta('${description}')" title="leer +" id="descCard"><b>Descripción:</b> ${truncatedWords} ...(+)</p>
+            
+            `;
+          //   return `<p>${truncatedWords}  ...</p><button class="leer-mas-button" onclick="mostrarDescripcionCompleta('${description}')">Leer más</button>
+        } else {
+          return `<p id="descCard"><b>Descripción:</b> ${description}</p><br>`;
+        }
+      }
+    }
+
+    function truncateData(tipoProduccion, cha, cantidad, txt) {
+      if (typeof tipoProduccion !== 'string' || !tipoProduccion) {
+        return '';
+      } else {
+        const words = tipoProduccion.split(cha);
+        //const truncatedWord = [words[0], words[1]] ; // Truncamos y quitamos posibles espacios en blanco
+
+        const truncatedWords = words[1] ? `${words[0]}, ${words[1]}` : words[0];
+
+        if (words.length > 0) {
+          // Si no hay un guion, mostramos solo la primera palabra
+          return `<b onclick="mostrarDescripcionCompleta('${tipoProduccion}')">${txt}:</b> ${truncatedWords}<br>`;
+        } else {
+          return `<b>${txt}:</b> ${tipoProduccion}<br>`;
+        }
+      }
+    }
+
+    // Obtiene una URL directa de visualización para logos, incluyendo enlaces de Google Drive
+    function getLogoSrc(item) {
+      try {
+        var logo = item.Logo;
+        if (!logo || typeof logo !== 'string') {
+          return `https://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/${item.id}.png`;
+        }
+
+        // Normalizar strings
+        var trimmed = logo.trim();
+
+        // Si es un enlace de Google Drive, convertir a vista directa
+        if (trimmed.includes('drive.google.com')) {
+          var driveId = '';
+
+          // Caso open?id=XXXX o uc?id=XXXX
+          var idMatch = trimmed.match(/[?&]id=([^&#]+)/);
+          if (idMatch && idMatch[1]) {
+            driveId = idMatch[1];
+          }
+
+          // Caso /file/d/XXXX/
+          if (!driveId) {
+            var fileMatch = trimmed.match(/\/file\/d\/([^/]+)/);
+            if (fileMatch && fileMatch[1]) {
+              driveId = fileMatch[1];
+            }
+          }
+
+          if (driveId) {
+            return `https://drive.google.com/uc?export=view&id=${driveId}`;
+          }
+        }
+
+        // Si es otra URL válida, usarla tal cual
+        return trimmed;
+      } catch (e) {
+        return `https://campus.ort.edu.ar/static/tmp/jquery-file-upload/${item.id}.png`;
+      }
+    }
+
+    // Crea el modal cuando se carga la página
+
+    var modal = document.createElement("div");
+    modal.className = "modal";
+    modal.style.display = "none"; // Inicialmente oculto
+
+    var modalContent = document.createElement("div");
+    modalContent.className = "modal-content";
+
+    var closeButton = document.createElement("span");
+    closeButton.className = "close";
+    closeButton.innerHTML = "&times;";
+
+    var modalParagraph = document.createElement("p");
+    modalParagraph.id = "modalParagraph";
+
+    modalContent.appendChild(closeButton);
+    modalContent.appendChild(modalParagraph);
+    modal.appendChild(modalContent);
+
+    document.body.appendChild(modal);
+
+    // Función para mostrar el modal con una descripción específica
+
+    // Función para cerrar el modal
+    closeButton.onclick = function () {
+      modal.style.display = "none";
+    };
+
+    // Cierra el modal si el usuario hace clic fuera de él
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+
+    function mostrarDescripcionCompleta(descripcion) {
+      modal.style.display = "block";
+      modal.style.alignItems = "center";
+      modal.style.display = "flex";
+      modal.style.justifyContent = "center";
+      modalParagraph.textContent = descripcion;
+    }
+
+    /**** fin modal****/
+
+    // Mostrar ico sinergizados
+    function Sinergizado(item) {
+      if (item.Sinergizado == "TRUE") {
+        return `<div class="syn-image" title="Sinergizado"></div>`;
+      } else {
+        return "";
+      }
+    }
+    //buscar con el input
+    const buscador = document.getElementById("buscador");
+
+    buscador.addEventListener("input", function () {
+      document.querySelectorAll(".button-55").forEach(function (boton) {
+        boton.classList.remove("is-active");
+        boton.setAttribute("aria-pressed", "false");
+      });
+
+      const terminoBusqueda = buscador.value.trim().toLowerCase();
+      filtrarProyectos(terminoBusqueda);
+    });
+
+    buscador.addEventListener("blur", function () {
+      if (!buscador.value.trim()) {
+        mostrarTodos();
+      }
+      buscador.value = "";
+    });
+
+    function filtrarProyectos(termino) {
+      const resultadoDiv = document.getElementById("resultado");
+      resultadoDiv.innerHTML = "";
+
+      const proyectosFiltrados = datos.filter(function (proyecto) {
+        const titulo = proyecto.Nombre.toLowerCase();
+        const descripcion = proyecto.Descripcion.toLowerCase();
+        const integrantes = proyecto.Integrantes.toLowerCase();
+        return (
+          titulo.includes(termino) ||
+          descripcion.includes(termino) ||
+          integrantes.includes(termino)
+        );
+      });
+
+      if (proyectosFiltrados.length > 0) {
+        proyectosFiltrados.forEach(function (item) {
+          var card = document.createElement("div");
+          card.classList.add("flip-card");
+          card.innerHTML = `
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front ${item.Impacto ? item.Impacto.split(',')[0].trim() : ''}">
+                            <div>
+                              <img src="${getLogoSrc(item)}" alt="Avatar"
+                              onerror="if(!this.dataset.fallback){this.dataset.fallback='campus'; this.src='https://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/${item.id}.png';} else {this.onerror=null; this.src='https://recursos.ort.edu.ar/static/archivos/anim/1663176/2287590/${item.id}.png';}">
+                            </div>
+                        <h3>${item.Nombre}</h3>
+                        <p>${item.Slogan.slice(0, 80)}</p>
+                        <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
+                        ${Sinergizado(item)}
+                        </div>
+                        <div class="flip-card-back ${item.Impacto ? item.Impacto.split(',')[0].trim() : ''}">
+                            <h3>${item.Nombre}</h3>
+                              ${truncateDescription(item.Descripcion, 10, item)}
+                            ${truncateData(item.Integrantes, ',', 2, 'Integrantes')}<br>
+                             
+                            <b>Categoria:</b> ${item.Categoria}</p>
+                            <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
+                        </div>
+                    </div>
+                `;
+          resultadoDiv.appendChild(card);
+        });
+      } else {
+        resultadoDiv.innerHTML = "<p>No se encontraron proyectos.</p>";
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+    window.addEventListener("scroll", function () {
+      var scrollToTopButton = document.getElementById("scrollToTopButton");
+
+      if (window.scrollY > 300) {
+        scrollToTopButton.style.display = "block";
+      } else {
+        scrollToTopButton.style.display = "none";
+      }
+    });
+
+    (function (h, o, t, j, a, r) {
+      h.hj =
+        h.hj ||
+        function () {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+      h._hjSettings = { hjid: 3697742, hjsv: 6 };
+      a = o.getElementsByTagName("head")[0];
+      r = o.createElement("script");
+      r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+
+
+
+    var datos = [
+  {
+    "id": '1-65',
+    "Nombre": "DERVAX",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "DERVAX desarrolla parches vacunatorios indoloros, accesibles y sustentables para transformar la inmunización global.",
+    "Descripcion": "Somos DERVAX, un proyecto que fue creado con el objetivo de cambiar la forma en la que las personas viven la vacunación. Nosotros creemos que el acceso a la salud no debería ser difícil ni costoso, y que las personas no deberían tener miedo de vacunarse, por eso desarrollamos un parche vacunatorio con micro agujas que es indoloro, fácil de transportar y no contaminante",
+    "field6": "https://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/1-65.png",
+    "Impacto": "Ambiental, Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Ignacio P, Emanuel D, Julian S, Matias K",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '2-58',
+    "Nombre": "LUMO",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Servicio integral de seguridad diseñado para optimizar la respuesta ante situaciones de emergencia en organizaciones.",
+    "Descripcion": "LUMO es una solución integral de seguridad que combina una aplicación móvil con dispositivos inteligentes instalados en elementos de emergencia. Su objetivo es facilitar la localización rápida y el acceso a estos recursos mediante geolocalización, señalización lumínica y alertas sonoras, mejorando la capacidad de respuesta ante situaciones críticas. De esta manera, contribuye a reducir riesgos, optimizar la gestión de emergencias y aumentar la seguridad de las personas en organizaciones e instituciones.",
+    "field6": "https://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/2-58.png",
+    "Impacto": "Ambiental, Económico, Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Educación, Mapas y navegación, Tecnología",
+    "Integrantes": "Sofía S, Sol P, Matias R, Santiago G, y Fidel A.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '3-40',
+    "Nombre": "Nodo urbano",
+    "Especialidad": "Construcciones",
+    "Slogan": "Dispositivo urbano soldario que busca conectar los recursos donados con las personas que lo necesiten.",
+    "Descripcion": "Nodo Urbano es un proyecto que busca reducir el desperdicio de alimentos y ropa mientras ayuda a personas en situación de vulnerabilidad. Consiste en un dispositivo urbano que permite donar y retirar alimentos y prendas de manera accesible y organizada. Su objetivo es mejorar el acceso a recursos básicos, fomentar la solidaridad y promover la reutilización de recursos dentro de la comunidad.",
+    "field6": "https://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/3-40.png",
+    "Impacto": "Ambiental, Económico, Social",
+    "ODS": "Hambre Cero",
+    "SuperTags": "Comida y bebida, Inclusión, Salud y Medicina, Tecnología",
+    "Integrantes": "Florencia Z, Mora C, Luz S y Isabella G",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '4-14',
+    "Nombre": "CAPSULAB",
+    "Especialidad": "Construcciones",
+    "Slogan": "Capsulas de co-working sustentables ubicadas en parques, accesibles para todo publico.",
+    "Descripcion": "Son eco capsulas insonoras, ubicadas en parques las cuales vos podes reservar por  medio de una aplicación/pagina web para ir a hacer co-working. Son capsulas sustentables, tienen wifi, enchufes, proyectores, y todo lo que necesites para poder trabajar adecuadamente. Podes  estar un maximo de 8hs diarias a un precio razonable.",
+    "field6": "https://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/4-14.png",
+    "Impacto": "Ambiental, Cultural, Social",
+    "ODS": "Energía asequible y no contaminante",
+    "SuperTags": "Comunicaciones, Energías renovables, Finanzas, Sustentabilidad, Tecnología",
+    "Integrantes": "Sol  D, Sabrina M, y Emma B.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '6-6.PNG"',
+    "Nombre": "Full-energized",
+    "Especialidad": "Construcciones",
+    "Slogan": "Parche solar inteligente que carga dispositivos con energía solar, combinando diseño y sustentabilidad.",
+    "Descripcion": "El proyecto consiste en el desarrollo de un parche solar inteligente, un accesorio flexible, estético y personalizable que se adhiere a dispositivos móviles para captar energía solar, almacenarla en una batería integrada y utilizarla posteriormente para cargar el celular. Su objetivo es ofrecer una alternativa práctica, sustentable e innovadora frente a los cargadores portátiles tradicionales, combinando tecnología, diseño y responsabilidad ambiental para que los usuarios puedan mantenerse conectados en cualquier lugar sin depender de enchufes convencionales.",
+    "field6": "https://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/5-12.png",
+    "Impacto": "Ambiental, Tecnológico",
+    "ODS": "Energía asequible y no contaminante",
+    "SuperTags": "Arte y diseño, Energías renovables, Finanzas, Sustentabilidad, Tecnología",
+    "Integrantes": "Micaela S, Miranda K y Matias D",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '5-12',
+    "Nombre": "EstacionAr",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Aplicación para encontrar estacionamiento en la via publica y garages privados.",
+    "Descripcion": "EstacionAr es una aplicación móvil diseñada para mejorar la movilidad urbana en CABA y el AMBA mediante la localización de espacios de estacionamiento disponibles en tiempo real. La plataforma permite a los conductores visualizar lugares libres en la vía pública, encontrar garages cercanos, ver los precios y disponibilidad, y reservar espacios en estacionamientos privados. EstacionAr busca reducir el tiempo de búsqueda de estacionamiento, disminuir la congestión vehicular, reducir el consumo de combustible y mejorar la experiencia diaria de los conductores.",
+    "field6": "https://drive.google.com/open?id=1WYJIa-IxqAjUo2UHeNnk0MPpshoPHWuf",
+    "Impacto": "Ambiental, Económico, Social, Tecnológico",
+    "ODS": "Ciudades y comunidades sostenibles",
+    "SuperTags": "Autos y vehículos, Eventos, Mapas y navegación, Sustentabilidad, Tecnología, Viajes y local",
+    "Integrantes": "Alan K, Tiago N, Gennaro A, Valentin S, Federico H",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '7-11.jpg"',
+    "Nombre": "Air Green",
+    "Especialidad": "Construcciones",
+    "Slogan": "Purificar el aire de las ciudades mas pobladas con postes verdes, en el centro de la ciudad.",
+    "Descripcion": "Nuestro proyecto se basa en crear unos postes rectangulares verdes, es decir que purifiquen el aire en las grandes ciudades, tambien va a ser autosustentable ya que se alimenta a traves de un panel solar en la parte superior y va a tener estaciones de carga y parada segura.",
+    "field6": "https://drive.google.com/open?id=1kz0I7F7cwKGbxC2EYbKHDvJc2hVT5rT7",
+    "Impacto": "Ambiental, Social, Tecnológico",
+    "ODS": "Ciudades y comunidades sostenibles",
+    "SuperTags": "Arte y diseño, Energías renovables, Finanzas, Sustentabilidad, Tecnología",
+    "Integrantes": "Gianluca R.  Benjamin Z. Thomas N.  Iair K.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '8-4',
+    "Nombre": "Selv",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Parche antitranspirante reutilizable adherible a la ropa evitando el malestar de la marca de sudor.",
+    "Descripcion": "Ofrecemos un parche antitranspirante reutilizable que se adhiere a la ropa. Funcionando como una barrera que evita manchas de sudor en tus prendas, con el objetivo de evitar el malestar que les genera a las personas las marcas de sudor.",
+    "field6": "https://drive.google.com/open?id=1vT_C_bVVuaR8mfhpfTt4IptjuAccG_zf",
+    "Impacto": "Ambiental, Cultural, Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Belleza y cuidado personal, Citas, Deportes, Eventos, Inclusión, Salud y Medicina, Autoestima",
+    "Integrantes": "Emilia A, Uma B, Kiara L y Camila S",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '9-3',
+    "Nombre": "CECH",
+    "Especialidad": "Construcciones",
+    "Slogan": "Bancos inteligentes sustentables que mejoran la comodidad, conectividad y seguridad en espacios públicos urbanos.",
+    "Descripcion": "Nuestro proyecto consiste en el diseño e instalación de bancos inteligentes para plazas, veredas y paradas de colectivo, equipados con energía solar, puertos de carga USB, conexión WiFi y sistemas de información en tiempo real. Su objetivo es mejorar la comodidad, conectividad y seguridad de las personas en los espacios públicos, al mismo tiempo que promueve la sostenibilidad y la modernización urbana. El modelo de negocio se sostiene mediante contratos con municipios, publicidad integrada y servicios tecnológicos, permitiendo que la propuesta sea rentable, innovadora y escalable a distintas ciudades.",
+    "field6": "https://drive.google.com/open?id=1r37OGaRzUVzqB31TwnHKUYsEr0Jz-mrA",
+    "Impacto": "Cultural",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Arte y diseño, Energías renovables, Mapas y navegación, Tecnología",
+    "Integrantes": "Santiago C, Clara E, Agustin C, Bruno H.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '10-3',
+    "Nombre": "STEPTECH",
+    "Especialidad": "Construcciones",
+    "Slogan": "Baldosas inteligentes, modulares, encastrables que mejoren seguridad peatonal, faciliten el mantenimiento urbano y generen energía.",
+    "Descripcion": "STEPTECH es una empresa de innovación urbana que propone una solución para uno de los problemas más comunes de las ciudades: las veredas deterioradas. \nEl proyecto consiste en desarrollar baldosas inteligentes modulares con sensores inteligentes capaces de mejorar la seguridad de los peatones, facilitar el mantenimiento urbano y generar energía a partir de las pisadas de las personas.",
+    "field6": "https://drive.google.com/open?id=13PzmKEh0kycol2WRLHNNlvKyS-gpawNO",
+    "Impacto": "Ambiental, Tecnológico",
+    "ODS": "Ciudades y comunidades sostenibles",
+    "SuperTags": "Energías renovables, Inclusión, Sustentabilidad, Tecnología",
+    "Integrantes": "Sol N, Facundo M, Valentín G, Julían B",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '11-3',
+    "Nombre": "ConteinerLab",
+    "Especialidad": "Construcciones",
+    "Slogan": "convertimos conteiners en desuso en espacios de capacitación práctica que ggeneran oportunidades laborales e inclusión social..",
+    "Descripcion": "El proyeecto propone reciclar conteiners en desuso y transformarlos en eespacio dde capacitación laboral. Estos espacios funcionan como talleres y aulas donde personas desempleadas pueden aprender distintos oficios mediante formacion práctica. Los conteiners se consiguen a través de acuerdos con emmpresas e industrias que ya no los utilizan. Estos son recuperados y adaptados para darles un nuevo uso.",
+    "field6": "https://drive.google.com/open?id=1OE0ly1n1bZbw1lZgKIs6oApM_uOzak-d",
+    "Impacto": "Ambiental, Económico, Social",
+    "ODS": "Educación de calidad",
+    "SuperTags": "Arte y diseño, Casa y hogar, Comunicaciones, Educación, Inclusión, Sustentabilidad",
+    "Integrantes": "Tomas P, Ramiro B, Matias R, Santiago M",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '12-4',
+    "Nombre": "MAKS",
+    "Especialidad": "Construcciones",
+    "Slogan": "Sillon con inclinacion a 45° que reduce el esfuerzo y brinda mayor comodidad e independencia.",
+    "Descripcion": "El proyecto MAKS consiste en el diseño de un sillón inteligente pensado para mejorar la calidad de vida de las personas mayores o con movilidad reducida. El sistema incorpora una placa elevadora que facilita sentarse y levantarse con menor esfuerzo, brindando mayor comodidad, seguridad e independencia. Además, el sillón puede incluir funciones premium como, bandeja deslizable, sensores de presión, controles externos, ruedas con freno y materiales impermeables y antimanchas, adaptándose a diferentes necesidades y niveles de accesibilidad.",
+    "field6": "https://drive.google.com/open?id=14x1CwZ1NjixHmFZAXZ0x8MaWzUm4GDAS",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño, Casa y hogar, Salud y Medicina, Tecnología",
+    "Integrantes": "Keira P, Sofia G, Miranda D y Ana Z",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '13-1',
+    "Nombre": "Surco",
+    "Especialidad": "Construcciones",
+    "Slogan": "Aprovechar una vieja estructura para brindar nuevas oportunidades",
+    "Descripcion": "En este proyecto podrás ver un edifico sin uso, en donde otorgaremos coworking, espacios de oficinas destinadas para aquellos empresarios que quieran abordarlo. Ademas, tiene un paseo comercial para poder resolver las necesidades diarias sin salir del trabajo. Por ultimo cuenta con residencias universitarias y alquiler para cualquier propietario.",
+    "field6": "https://drive.google.com/open?id=1pUZuSDOGJdhvETyiejoHPd0cr0GKMXl5",
+    "Impacto": "Ambiental, Económico, Social",
+    "ODS": "Fin de la pobreza",
+    "SuperTags": "Casa y hogar, Compras, Finanzas",
+    "Integrantes": "Giuliana V.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '14-1',
+    "Nombre": "URBANOVA",
+    "Especialidad": "Construcciones",
+    "Slogan": "Recuperamos espacios bajo autopistas con comercios sustentables impulsados por energías renovables.",
+    "Descripcion": "Urbanova es un proyecto de desarrollo urbano sustentable que busca aprovechar los espacios muertos ubicados debajo de la Autopista Perito Moreno, en Villa Luro, mediante la creación de paseos comerciales modulares para emprendedores. La propuesta integra soluciones innovadoras de sostenibilidad, como la captación y reutilización de agua de lluvia y el aprovechamiento de energía generada por espiras magnéticas instaladas en la autopista. De esta manera, Urbanova promueve el crecimiento económico local, acerca servicios a los vecinos y contribuye a la construcción de una ciudad más sostenible, eficiente y policéntrica.",
+    "field6": "https://drive.google.com/open?id=11I0U3GCJUjdggUhR1261Q8uZMM1lJoXq",
+    "Impacto": "Ambiental, Económico, Social, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Autos y vehículos, Compras, Energías renovables, Entretenimiento, Sustentabilidad, Tecnología",
+    "Integrantes": "ISABELLA BUSSO DE CARLOS, SERENA COSTANZI, GRETA ARROYO Y SOFIA CAMARGO",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '15-1',
+    "Nombre": "GreenFit",
+    "Especialidad": "Construcciones",
+    "Slogan": "Convertimos el ejercicio en energía limpia, reduciendo costos y cuidando el planeta.",
+    "Descripcion": "GreenFit es una empresa que transforma gimnasios tradicionales en espacios sustentables mediante la instalación de máquinas que generan energía, paneles solares y sistemas de eficiencia energética. Su objetivo es reducir el consumo eléctrico, disminuir el impacto ambiental y generar ahorros económicos para los gimnasios, convirtiendo el ejercicio físico en una fuente de energía limpia y renovable.",
+    "field6": "https://drive.google.com/open?id=1Ki_60x0NOVpcR_CabK5Be0VaoGCJbCwG",
+    "Impacto": "Ambiental, Económico, Tecnológico",
+    "ODS": "Energía asequible y no contaminante",
+    "SuperTags": "Arte y diseño, Deportes, Energías renovables, Sustentabilidad, Tecnología",
+    "Integrantes": "Joaquin B, Eitan V, Manuel F y Maria Agustina F",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '16-1',
+    "Nombre": "Agendas X la vida",
+    "Especialidad": "Construcciones",
+    "Slogan": "Crear y diseñar con el fin de recolectar recursos para salvar vidas y prevenir el cáncer",
+    "Descripcion": "Nuestro proyecto se basa en diseñar objetos simples de la vida cotidiana como agendas, y venderlas con el objetivo de recaudar fondos para la organización \"Por la vida\".",
+    "field6": "https://drive.google.com/open?id=1q2wzwNs-Qn2Pwng8fWZ2oyH1uCvJQqxN",
+    "Impacto": "Cultural, Económico, Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño, Compras, Comunicaciones, Inclusión, Salud y Medicina, Tecnología",
+    "Integrantes": "María I, Agustina A y Marco S",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '17-2',
+    "Nombre": "Solaria",
+    "Especialidad": "Construcciones",
+    "Slogan": "Techos sustentables con sistema de refrigeración que generan sombra y confort urbano.",
+    "Descripcion": "SOLARIA es un sistema de techos sustentables con refrigeración evaporativa diseñado para mejorar el confort térmico en espacios públicos. La estructura proporciona sombra, recolecta agua de lluvia y la utiliza en rociadores de vapor que refrescan el ambiente de forma eficiente y sostenible. Su objetivo es reducir los efectos del calor extremo, promover el bienestar de los peatones y contribuir al desarrollo de ciudades más habitables y resilientes frente al cambio climático.",
+    "field6": "https://drive.google.com/open?id=1iwUxSPGdfjUCJjK1dhTd1_Ed-9ma8thq",
+    "Impacto": "Ambiental, Social",
+    "ODS": "Acción por el clima",
+    "SuperTags": "Casa y hogar, Energías renovables, Sustentabilidad, Tecnología",
+    "Integrantes": "Magali S, Stefanía Z, Abril Y y Josefina M",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '18-1',
+    "Nombre": "intergu.ia",
+    "Especialidad": "Construcciones",
+    "Slogan": "Plataforma que combina IA y diseño profesional para mejorar espacios interiores eficientemente.",
+    "Descripcion": "Interguia es una plataforma que combina inteligencia artificial y diseño de interiores para identificar problemas en los espacios y ofrecer soluciones rápidas, accesibles y personalizadas, conectando a los usuarios con profesionales y proveedores especializados.",
+    "field6": "https://drive.google.com/open?id=1WNQN6BBX0oKvSUuzVZ0GniaW-8O4jN5w",
+    "Impacto": "Económico, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Arte y diseño, Casa y hogar, Compras, Inteligencia Artificial, Tecnología",
+    "Integrantes": "Santiago A, JoaquÍn M, Franco N, Matias S",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '19-2',
+    "Nombre": "Biznex",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Asesorias comerciales para determinar la factibilidad comercial y posterior acompañamiento de necesitarlo de un emprendimiento",
+    "Descripcion": "Biznex es un servicio de asesoramiento estratégico que evalúa la viabilidad de nuevos emprendimientos mediante un Índice de Factibilidad Comercial (IFC). A partir de este análisis, brinda recomendaciones personalizadas y acompañamiento para reducir riesgos, optimizar decisiones y aumentar las probabilidades de éxito de los negocios.",
+    "field6": "https://drive.google.com/open?id=1aFvvr-aW4jfKAt4QIJ0UB1oKj39XAcqs",
+    "Impacto": "Económico",
+    "ODS": "Trabajo decente y crecimiento económico",
+    "SuperTags": "Compras, Finanzas, Mapas y navegación",
+    "Integrantes": "Maximo C, Facundo E, Joaquin B, Benjamin Z",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '20-1',
+    "Nombre": "Pet Living",
+    "Especialidad": "Construcciones",
+    "Slogan": "Empresa cuyo objetivo es optimizar los espacios para la comodidad de las mascotas mediante muebles inteligentes.",
+    "Descripcion": "Nuestro proyecto está orientado a mejorar la convivencia entre las personas y sus mascotas en hogares con espacios reducidos. Nuestra propuesta consiste en diseñar muebles multifuncionales e inteligentes que integren soluciones para el descanso, la alimentación y el bienestar de las mascotas sin ocupar espacio adicional ni afectar la estética del hogar. A través de elementos como camas retráctiles, estaciones de comida ocultas y refugios integrados en muebles, buscamos optimizar cada ambiente y brindar mayor comodidad tanto a las mascotas como a sus dueños. Además, incorporamos tecnología que permite monitorear y controlar ciertos dispositivos a distancia, aportando tranquilidad cuando las mascotas permanecen solas en casa.",
+    "field6": "https://drive.google.com/open?id=1wHiJKDNfT683yhtqmQQ-lPFl7lzsxfgq",
+    "Impacto": "Económico, Social, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Arte y diseño, Casa y hogar, Sustentabilidad, Tecnología",
+    "Integrantes": "Sofia A, Francisca M, Tiago M, Ian S",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '21-6',
+    "Nombre": "BioDat",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Aplicacion para pacientes, que recopila su historial medico, citas, recetas médicas, sintomas, entro otros.",
+    "Descripcion": "BioDat es una aplicación que acompaña al paciente de forma permanente a lo largo de su vida. Este sistema de información sanitaria permite al usuario registrar manualmente el historial médico, antecedentes clínicos o síntomas ante malestares, incluyendo fotografías de zonas externas corporales visibles afectadas, historiales y recetas médicas, entre otros. Esta aplicación no es solo un método organizativo, es prevención y resuelve la dependencia constante de registros en papel que suelen perderse o duplicarse innecesariamente. Asimismo, contará con planes pensados para instituciones como geriátricos, hospitales y equipos deportivos, con distintos packs y precios según las funciones incorporadas.",
+    "field6": "https://drive.google.com/open?id=1iz_gYJgc1VIUIwlqfulT_2CHLJHUsQoO",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Inteligencia Artificial, Paternidad y maternidad, Salud y Medicina",
+    "Integrantes": "Zoe. I, Sofia. P, Helena. MK, Camila. W y Chiara. H",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '22-1',
+    "Nombre": "AgroMeet",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Es un markeplace de alquiler de maquinaria agricola, con diversos servicios",
+    "Descripcion": "Es un marketplace el cual conecta a dueños de maquinaria y productores que necesitan la maquinaria. Entonces nosotros intermediamos entre estas partes y conectamos con la oferta de servicios de logistica y seguros.",
+    "field6": "https://drive.google.com/open?id=1k4NNicOlsAhzL2KKC45ZuTSCjWzi928j",
+    "Impacto": "Económico",
+    "ODS": "Reducción de las desigualdades",
+    "SuperTags": "Autos y vehículos, Campo y maquinaria",
+    "Integrantes": "Francisco M, Nicolas M y Joaquín G",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 23,
+    "Nombre": "BITOAJ",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Pulsera inteligente que alerta mediante vibraciones a personas con discapacidad auditiva en emergencias.",
+    "Descripcion": "BITOAJ es una pulsera inteligente desarrollada para brindar mayor seguridad, autonomía e inclusión a las personas con discapacidad auditiva frente a situaciones de emergencia. El dispositivo funciona de manera autónoma, sin depender de un teléfono celular u otros equipos, ya que recibe alertas oficiales directamente mediante tecnologías de conectividad propias y las transforma en vibraciones inmediatas y perceptibles. De esta manera, permite que los usuarios puedan reaccionar rápidamente ante incendios, terremotos, tsunamis, evacuaciones, conflictos bélicos u otras situaciones de riesgo, sin depender de terceros. Además, incorpora un botón físico de emergencia con dos funciones clave: al presionarlo una vez, envía automáticamente un mensaje junto con la ubicación del usuario a contactos de confianza previamente configurados para informar que se encuentra a salvo o necesita asistencia; al presionarlo dos veces, contacta directamente a los servicios de emergencia para solicitar ayuda inmediata. La propuesta también incluye mallas intercambiables que permiten personalizar el producto, combinando funcionalidad, comodidad y diseño. A través de esta solución, se busca reducir desigualdades, promover la independencia de las personas con discapacidad auditiva y garantizar que, en situaciones críticas, depender de otros no sea una opción para mantenerse seguro.",
+    "field6": "https://drive.google.com/open?id=1gDnQSmuT3oEvxRa3dWKWHdUmauraoQ-p",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Inclusión, Salud y Medicina, Tecnología, Alarmas locales",
+    "Integrantes": "Sol H, Abril P, Bianca K, Mora K, Lara H y Guila C",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '24-1',
+    "Nombre": "Kazoku",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "El proyecto consiste en un pastillero inteligente conectado a una aplicación movil con múltiples funciones.",
+    "Descripcion": "Nuestro proyecto se trata de un pastillero inteligente conectado a una app, con el objetivo de evitar tanto la omisión como el exceso en la ingesta de pastillas. La aplicación cumple con múltiples funciones, entre las cuales se destacan la organización de las dosis por días y horarios, los recordatorios automáticos y el envío de notificaciones a familiares o cuidadores cuando una toma no es registrada. La idea busca mejorar la autonomía, la seguridad y el seguimiento de los tratamientos médicos en un contexto en el que hay muchas enfermedades y envejecimiento poblacional.",
+    "field6": "https://drive.google.com/open?id=1kb2vnd5DqQnob-izGqwltNlIlJYgV87W",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Tecnología",
+    "Integrantes": "Facundo S, Alan G, Tomas A, Gael P, Theo M",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 25,
+    "Nombre": "Atenux FIT",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Conector entre gimnasios, entrenadores, profesionales de la salud y usuarios",
+    "Descripcion": "Es una plataforma dividida en una pagina web y una app",
+    "field6": "https://drive.google.com/open?id=1iH42I0-jOHA7YCejO4iMl2lUhlAMCb9Y",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Belleza y cuidado personal, Comida y bebida, Comunicaciones, Deportes, Educación, Inteligencia Artificial, Salud y Medicina",
+    "Integrantes": "Felipe L, Joaquín GM, Nicolas G",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '26-1',
+    "Nombre": "CuiDARTE",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Desarrollamos, diseñamos y comercializamos juegos educativos inclusivos que fomentan empatía y aprendizaje significativo.",
+    "Descripcion": "CuiDARTE desarrolla juegos educativos e inclusivos dirigidos al público infantil, con el objetivo de generar conciencia sobre distintas condiciones de salud y fomentar la empatía desde edades tempranas. La propuesta combina aprendizaje y entretenimiento mediante experiencias de juego dinámicas que pueden ser utilizadas tanto en el hogar como en ámbitos educativos, aportando valor social y educativo mientras responde a una necesidad poco cubierta en el mercado.",
+    "field6": "https://drive.google.com/open?id=1-RXnkGG_ZSsA2f15heiKr81FF7DXu5oL",
+    "Impacto": "Social",
+    "ODS": "Educación de calidad",
+    "SuperTags": "Arte y diseño, Educación, Inclusión, Salud y Medicina",
+    "Integrantes": "Tatiana D, Lara C, Mia K, Yas A, Mica P",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 27,
+    "Nombre": "Vitalert",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Parche inteligente para anticipar desmayos y prevenir caídas",
+    "Descripcion": "Parche inteligente que anticipa desmayos (síncope). Se coloca en el cuello y de esa manera, monitorea en tiempo real el flujo sanguineo, presión y ritmo cardiaco. Detecta anomalías que se alertan en la app movil que tiene asociada, permitiendo tanto al usuario como a sus familiares actuar a tiempo y evitar accidentes.",
+    "field6": "https://drive.google.com/open?id=1n7M4h9NQzDKjDRtcImSNz4D97jkiDMHj",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Tecnología",
+    "Integrantes": "Julieta M, Lara L, Ernestina M, Pilar LB",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 28,
+    "Nombre": "SĒNZA Beauty",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "SĒNZA es un maquillaje modular, portátil y personalizable que simplifica la rutina diaria.",
+    "Descripcion": "SĒNZA es un emprendimiento de cosmética que busca revolucionar la forma de usar y transportar maquillaje mediante un lápiz modular, portátil y personalizable. El producto permite integrar distintos cosméticos en un único formato práctico, reduciendo espacio, costos y residuos. Pensado especialmente para adolescentes y jóvenes, combina innovación, sustentabilidad y comodidad, ofreciendo una alternativa moderna al maquillaje tradicional.",
+    "field6": "https://drive.google.com/open?id=1KhTdJP4VbWaMgbflq7d9fe6Zj72iB0U6",
+    "Impacto": "Ambiental, Económico, Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Belleza y cuidado personal, Compras, Sustentabilidad",
+    "Integrantes": "Victoria Z, Sofia C, Maia T, Valentina S, Malena F",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 29,
+    "Nombre": "SupLife",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "marca de suplementos pensados para jóvenes en formato caramelos masticables",
+    "Descripcion": "Suplementos que ayuden a mejorar la energía, concentración, aspecto de la piel, descanso y bienestar, usando ingredientes reales y fáciles de consumir. El producto se presenta en formato caramelos masticables, siendo práctico, accesible en cuanto a su valor de mercado y más fácil de transportar y consumir que los suplementos tradicionales o energizantes. Se comercializan mayormente en paquetes sustentables de 15 unidades para abarcar dos semanas pero también ofrecemos packs mensuales para facilitar la incorporación de los mismos a la rutina diaria.",
+    "field6": "https://drive.google.com/open?id=1T-HLr7vIKofkuDzNr40DxBjw2rDCpgU4",
+    "Impacto": "Ambiental, Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Belleza y cuidado personal, Comida y bebida, Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Anastasia G, Ignacio Z,  Jano L y Matías R",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '30',
+    "Nombre": "Signtalk",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Una app que ayuda a comunicarse a personas con discapacidad auditiva.",
+    "Descripcion": "SignTalk es una aplicación que facilita la comunicación entre personas con discapacidad auditiva o del habla y el resto de la sociedad, utilizando inteligencia artificial para traducir en tiempo real la lengua de señas a texto o audio, y viceversa.",
+    "field6": "https://drive.google.com/open?id=1MuGM3IYbUuRHnPdJYtnFX9nKMGuysF7w",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Reducción de las desigualdades",
+    "SuperTags": "Comunicaciones, Inclusión, Inteligencia Artificial, Tecnología",
+    "Integrantes": "Tobias T - Ramiro D.A - Tobias H - Dante G - Thiago F",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 31,
+    "Nombre": "YAFFE",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "YAFFE transforma borra de café reciclada en productos de skincare sustentables mediante economía circular.",
+    "Descripcion": "YAFFE es un emprendimiento de skincare sustentable que transforma la borra de café reciclada de cafeterías de especialidad en productos de cuidado personal, como exfoliantes, cremas hidratantes y sérums. Su modelo se basa en la economía circular, reduciendo residuos y generando un impacto ambiental positivo. La marca combina bienestar, innovación y sustentabilidad, ofreciendo productos naturales y accesibles para consumidores comprometidos con el cuidado de su piel y del medio ambiente",
+    "field6": "https://drive.google.com/open?id=1KEi6t6yVOYxGHz3PDJPmurLjWH2sI9Hb",
+    "Impacto": "Ambiental, Económico, Social",
+    "ODS": "Producción y consumo responsables",
+    "SuperTags": "Belleza y cuidado personal, Casa y hogar, Compras, Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Lara P, Mia F, Lucia T, Nicolas E",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 32,
+    "Nombre": "Safe Tire",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "SafeTire utiliza sensores en los neumáticos para detectar fallas y prevenir accidentes viales de forma temprana",
+    "Descripcion": "SafeTire es un proyecto que busca mejorar la seguridad de los conductores usando tecnología aplicada a los neumáticos. Consiste en pequeños sensores que se colocan en cada rueda y que controlan constantemente la presión y la temperatura. Toda esa información se envía a una aplicación en el celular, donde el usuario puede ver el estado de sus neumáticos en tiempo real y recibir alertas si hay algún problema. De esta forma, se pueden prevenir accidentes, reducir gastos de mantenimiento y mejorar el rendimiento del vehículo. Nuestro objetivo es ofrecer una solución práctica e innovadora que ayude a las personas a conducir de manera más segura.",
+    "field6": "https://drive.google.com/open?id=1YSAN9sYZ2IiXUMdcH93m_IyFzd7SzoA6",
+    "Impacto": "Ambiental, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Autos y vehículos, Tecnología",
+    "Integrantes": "Tobias K, Ronen K, Valentino T y Matias M",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 33,
+    "Nombre": "GOOMY",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Goomy se dedica al desarrollo y comercialización de caramelos (formato gomitas) energéticos, pensados para deportistas y personas activas que buscan mejorar su rendimiento y bienestar de forma práctica y rápida.",
+    "Descripcion": "Nuestros caramelos deportivos están formulados con ingredientes naturales que aportan beneficios específicos según la necesidad del usuario: algunos estarán orientados a activar el cuerpo antes del entrenamiento (favoreciendo el calentamiento), otros ayudarán a prevenir calambres / molestias físicas durante la actividad física, y otros estarán enfocados en la recuperación muscular posterior. Además, se priorizará el uso de componentes que contribuyan al cuidado de la salud, evitando excesos de azúcares y aditivos artificiales.",
+    "field6": "https://drive.google.com/open?id=1C424lkzg1WZQcPw7SnMHX7DX9EhvSI2t",
+    "Impacto": "Económico, Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Comida y bebida, Deportes, Salud y Medicina",
+    "Integrantes": "Thiago L, Thiago V, Agustin C",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 34,
+    "Nombre": "Playworks",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Playworks ofrece kits de actividades lúdicas que reducen pantallas, fomentan creatividad, aprendizaje y socialización.",
+    "Descripcion": "Playworks es un emprendimiento dedicado al desarrollo de soluciones lúdicas y educativas que promueven el juego, la creatividad y la interacción social en niños. A través de productos innovadores, actividades organizadas y recursos adaptados a diferentes contextos, busca ofrecer alternativas saludables al uso excesivo de pantallas, transformando momentos cotidianos en oportunidades de aprendizaje, diversión y conexión.",
+    "field6": "https://drive.google.com/open?id=1dR4P9Eqc1lNmBKf1PyYZdBzVZ5iJ1blE",
+    "Impacto": "Cultural, Social",
+    "ODS": "Educación de calidad",
+    "SuperTags": "Arte y diseño, Comunicaciones, Deportes, Educación, Entretenimiento, Inclusión, Paternidad y maternidad, Tecnología",
+    "Integrantes": "Camila B, Tiara M , Melina T y Julieta P",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 35,
+    "Nombre": "Spot",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Aplicación que conecta conductores con plazas de estacionamiento ociosas en establecimientos comerciales.",
+    "Descripcion": "Spot es una aplicación que busca conectar a conductores que necesitan estacionamiento y a oferentes de plazas de parking que están disponibles u ociosas (en determinados horarios). Permite reservar anticipadamente el estacionamiento para prevenir demoras a la hora de aparcar, reduciendo el impacto ambiental y permitiendo una gestión eficiente del tiempo. Podés cumplir el rol de oferente de estacionamiento (si sos un centro comercial, hotel, administrador de edificios de oficinas, de estacionamientos comerciales, gimnasios con parking, etc.) o de conductor y cancelar la reserva de gratuita hasta 6 horas antes de lo pactado.",
+    "field6": "https://drive.google.com/file/d/1fGCsReSmrs073IXZcmiUZNmAyVfK0-QQ/view?usp=drive_link",
+    "Impacto": "Económico, Social",
+    "ODS": "Ciudades y comunidades sostenibles",
+    "SuperTags": "Autos y vehículos, Tecnología, Viajes y local",
+    "Integrantes": "Manuel S, Gonzalo P, Nicolás D, Sabrina S, Thiago S",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 36,
+    "Nombre": "Fragmento",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Fragmento busca darle una segunda vida a los materiales de obra fomentando asi la economía circular.",
+    "Descripcion": "Recolectamos el material descartado de las obras y los procesamos industrialmente para luego formar productos tales como bancos para plazas publicas, muebles, mesas, macetas, etc. Nuestro modelo de negocio es bidireccional al ser tanto compradores de los residuos (por un precio bajo o nulo) a empresas como a particulares; como vendedores a personas y pequeñas empresas del rubro de la construcción que buscan materiales más económicos, así como consumidores jóvenes y adultos interesados en el diseño de interiores, la sustentabilidad y muebles con identidad única. De esta manera, no solo reducimos el impacto ambiental, sino que también genera valor económico a partir de residuos y amplía el acceso a productos sustentables.",
+    "field6": "https://drive.google.com/open?id=1GaHK4zbxStTLyTAWRmad8YYg0_KBELZX",
+    "Impacto": "Ambiental, Económico, Social",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Arte y diseño, Casa y hogar, Energías renovables, Sustentabilidad, construcción",
+    "Integrantes": "Salvador M.D, Tobias K, Ignacio A.C, Lara B, Catherina S.V.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 37,
+    "Nombre": "HerTime",
+    "Especialidad": "Construcciones",
+    "Slogan": "Queremos solucionar la presencia de fila en los baños públicos (shoppings) de mujeres.",
+    "Descripcion": "En HerTime proponemos transformar los baños públicos de mujeres en espacios más amplios, eficientes y pensados según sus necesidades reales. Nuestra solución se basa en ampliar la cantidad de cubículos para reducir las filas, optimizar la circulación y mejorar la experiencia general.",
+    "field6": "https://drive.google.com/open?id=1hyJ-fYX1Trz4AmRLhUOXMUHuYM331vqt",
+    "Impacto": "Social",
+    "ODS": "Igualdad de género",
+    "SuperTags": "Arte y diseño, Belleza y cuidado personal, Inclusión, Paternidad y maternidad, Sustentabilidad, Tecnología",
+    "Integrantes": "Shirel U y Melanie G",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 38,
+    "Nombre": "Tajana Transit",
+    "Especialidad": "Construcciones",
+    "Slogan": "Paradas de colectivo inteligentes y sustentables con confort, seguridad, conectividad y energía solar.",
+    "Descripcion": "Nuevas paradas de colectivo que en vez de ser un poste con el numero de la parada sean cabinas vidriadas, con capacidad entre 8 y 12 personas. Las cuales tengan aire acondicionado frio calor, banquitos para sentarse, enchufes para cargar dispositivos moviles, dispenser para cargar agua los dias de mucho calor, wifi publico, luces para cuando se hace de noche, boton de seguridad en caso de alguna situacion de peligro, pantalla que te indica en tiempo real cuanto falta para que llegue el colectivo y que la energia sea a base de paneles solares que esten ubicados en el techo.",
+    "field6": "https://drive.google.com/open?id=11jJcvJnnMt-tbmiDYXyHpmDIZJQVTzqC",
+    "Impacto": "Ambiental, Social, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Autos y vehículos, Comunicaciones, Energías renovables, Mapas y navegación, Sustentabilidad, Tecnología, Viajes y local",
+    "Integrantes": "Lucia C, Jazmin S, Katrina W y Tali G",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 39,
+    "Nombre": "velox design",
+    "Especialidad": "Construcciones",
+    "Slogan": "Una app que ayuda a diseñadores y a clientes a encontrarse para trabajar",
+    "Descripcion": "El proyecto buca resolver dos Problematicas, la desinformacion a la hora de diseñar, que los diseñadores de bajo renombre puedan conseguir trabajo mas rapido y facil. Esta es una salida economica para el cliente, que tal vez no puede o quiere invertir tanto en un diseñador",
+    "field6": "https://drive.google.com/open?id=1mC-tmFVqQhTO55mDlcCs6CAhAvdcv-iY",
+    "Impacto": "Económico, Social",
+    "ODS": "Trabajo decente y crecimiento económico",
+    "SuperTags": "Arte y diseño, Casa y hogar, Citas",
+    "Integrantes": "Ramiro C, Tadeo R, Francisco A, Leonel T",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 40,
+    "Nombre": "Avira",
+    "Especialidad": "Construcciones",
+    "Slogan": "Transformamos donaciones textiles en prendas de diseño accesibles para más personas.",
+    "Descripcion": "Avira es una marca de ropa que busca hacer el diseño diferente. A partir de la donación de telas y prendas de distintas marcas y personas, trabajamos con diseñadores que las transforman en piezas únicas. Así, combinamos creatividad, sustentabilidad y calidad, ofreciendo prendas originales a precios más accesibles.",
+    "field6": "https://drive.google.com/open?id=1JAjizefyrrhsZ4sJ12nromSO2LVUcGsl",
+    "Impacto": "Ambiental, Económico, Social",
+    "ODS": "Producción y consumo responsables",
+    "SuperTags": "Arte y diseño, Belleza y cuidado personal, Compras, Inclusión, Sustentabilidad",
+    "Integrantes": "Martina K, Debora G, Luz K",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 41,
+    "Nombre": "Meluvim",
+    "Especialidad": "Construcciones",
+    "Slogan": "Meluvim brinda acompañamiento, socialización y actividades para mejorar la calidad de vida de personas mayores.",
+    "Descripcion": "Meluvim es un proyecto pensado para mejorar la calidad de vida de las personas mayores. Consiste en un espacio seguro y agradable donde pueden participar en actividades recreativas, conocer gente de su edad y aprender nuevas habilidades, como el uso de la tecnología. A través de juegos, talleres y actividades grupales, buscamos que se sientan acompañados, activos y valorados, promoviendo su bienestar físico, mental y emocional.",
+    "field6": "https://drive.google.com/open?id=1WStWtKVHE0wD1P7pHfsPIelqzjiRsUSf",
+    "Impacto": "Cultural, Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño, Comunicaciones, Entretenimiento, Inclusión, Inteligencia Artificial, Salud y Medicina, Tecnología",
+    "Integrantes": "Katia M, Paula W, Ámbar Y",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 42,
+    "Nombre": "Smart Cross",
+    "Especialidad": "Construcciones",
+    "Slogan": "Lentes inteligentes para que la calle sea un lugar seguro para los no videntes tambien.",
+    "Descripcion": "Nuestro proyecto trata de unas gafas inteligentes diseñadas para las personas con vision reducida, el cual consta con un sistema de deteccion de obstaculos y semaforos la cual emite una señal de vibracion al usuario la cual le advierte la proximidad de un obstaculo.",
+    "field6": "https://drive.google.com/open?id=1kgDg2AbXPMqCRQABL0k6KamY2xWolXwk",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Reducción de las desigualdades",
+    "SuperTags": "Inclusión, Inteligencia Artificial, Salud y Medicina, Tecnología",
+    "Integrantes": "Taiel K, Lucas A, Benja R y Francisco B",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 43,
+    "Nombre": "Mix & Meet",
+    "Especialidad": "Construcciones",
+    "Slogan": "Creamos espacios adaptados que mejoran la calidad de vida, independencia e inclusión social.",
+    "Descripcion": "Nuestro proyecto consiste en diseñar y adaptar espacios inclusivos para personas con discapacidad, transformando ambientes comunes en lugares accesibles, cómodos y funcionales. Trabajamos con instituciones y usuarios para conocer sus necesidades y desarrollar soluciones personalizadas que promuevan la autonomía, el bienestar y la inclusión, combinando la accesibilidad con el diseño.",
+    "field6": "https://drive.google.com/open?id=1hsWnFXxaVNk5uEAACWytsaALpNjFbC25",
+    "Impacto": "Social",
+    "ODS": "Reducción de las desigualdades",
+    "SuperTags": "Arte y diseño, Educación, Inclusión, Salud y Medicina",
+    "Integrantes": "Johana M, Francesca A, Micaela W",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 44,
+    "Nombre": "Clean&Green",
+    "Especialidad": "Construcciones",
+    "Slogan": "optimizacion y aseguramentiento del reciclaje sustentable en CABA",
+    "Descripcion": "Nuestro proyecto consiste en el desarrollo de un contenedor inteligente para residuos reciclables, acompañado por una aplicación móvil que implementa un sistema de recompensas para incentivar el reciclaje. El contenedor incorpora sensores e inteligencia artificial capaces de identificar si el residuo depositado es apto para reciclar, además de clasificarlo y registrar la cantidad de materiales reciclados. A través de la aplicación, los usuarios pueden acumular puntos y canjearlos por beneficios. En una primera etapa, el proyecto se implementará en el sector privado de la Ciudad Autónoma de Buenos Aires.",
+    "field6": "https://drive.google.com/open?id=1a5Sw0LmuielUpWGjJh54lFTSYTH4cgwJ",
+    "Impacto": "Ambiental, Tecnológico",
+    "ODS": "Ciudades y comunidades sostenibles",
+    "SuperTags": "Inteligencia Artificial, Sustentabilidad, Tecnología",
+    "Integrantes": "Francisco Vazquez Brenlla, Aryeh Binyamin Moshe Kurtz, Leonel Moskovics, Dylan Chmielevsky y Teodoro Igal Perles",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 45,
+    "Nombre": "Indeura",
+    "Especialidad": "Informática",
+    "Slogan": "Marketplace digital de videojuegos enfocado en desarrolladores independientes",
+    "Descripcion": "Indeura es un marketplace digital de videojuegos enfocado en desarrollaodres independientes, con el objetivo de brindar accesibilidad a este sector que prioriza el capital antes que la calidad.",
+    "field6": "https://drive.google.com/open?id=1zpP67ruqd08OLZCmocwxOToe_-0CQob0",
+    "Impacto": "Cultural, Económico, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Compras, Comunicaciones, Entretenimiento, Inteligencia Artificial, Tecnología",
+    "Integrantes": "Martin S, Tomas M, Andres F, Francisco C",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 46,
+    "Nombre": "Quórum",
+    "Especialidad": "Informática",
+    "Slogan": "Aplicación que facilita la acción y organización de juntadas mediante coordinación, votaciones y recomendaciones personalizadas.",
+    "Descripcion": "Quórum es una aplicación diseñada para facilitar y simplificar la organización de juntadas entre amigos y grupos. Permite coordinar horarios, proponer y votar fechas, lugares y actividades, confirmar asistencia, gestionar gastos y recibir recomendaciones personalizadas según los intereses del grupo. Además, incorpora un asistente inteligente que ayuda a tomar decisiones y planificar encuentros de forma rápida, centralizando todo el proceso en un solo lugar.",
+    "field6": "https://drive.google.com/open?id=1kmXprM13-qmmSz4BA0GtObv9A7Qsw2HL",
+    "Impacto": "Social",
+    "ODS": "Alianzas para lograr los objetivos",
+    "SuperTags": "Comida y bebida, Comunicaciones, Eventos, Inteligencia Artificial, comunidad, vida social",
+    "Integrantes": "Brandon G, Martina K, Benjamin K, Catalina R",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '47-7',
+    "Nombre": "DataScope",
+    "Especialidad": "Informática",
+    "Slogan": "Es una herramienta para medir el uso de IA en las empresas",
+    "Descripcion": "Una extensión que le da herramientas al empleado para ayudarlo en su día a día usando la IA, a la vez que a nosotros nos da datos con los que armamos un dashboard para la empresa, que le muestra todo lo referente al uso de IA de sus empleados.",
+    "field6": "https://drive.google.com/open?id=1wT12uwcNSIziwJW8JHEwUgFO9eWzHJJO",
+    "Impacto": "Económico, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Educación, Finanzas, Inteligencia Artificial, Tecnología",
+    "Integrantes": "Elian U, Luca G, Nicolas N, Benjamin H",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '48-1',
+    "Nombre": "FanMeet",
+    "Especialidad": "Informática",
+    "Slogan": "FanMeet conecta fans de recitales para que los vivan acompañados.",
+    "Descripcion": "FanMeet es una plataforma que centraliza la información de recitales y facilita la conexión entre personas con los mismos gustos musicales. La aplicación permite que los fans se conozcan y organizen encuentros antes, durante o después de cada show, haciendo que ir a un conciero sea una actividad mucho mas social.",
+    "field6": "https://drive.google.com/open?id=1d_47SoDm_7NRux0UC8P_Rg0NFd29Qxtl",
+    "Impacto": "Económico, Social, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Entretenimiento, Eventos, Inclusión",
+    "Integrantes": "Ramiro P, Luciana K, Clara W, Lucas Ian D",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 49,
+    "Nombre": "Safeli",
+    "Especialidad": "Informática",
+    "Slogan": "Un sistema de navegación mobile, centrado en la seguridad del usuario.",
+    "Descripcion": "Safeli es un sistema de navegación móvil centrado en la seguridad del usuario que utiliza su algoritmo propio, Safeli Score, para identificar zonas de riesgo y recomendar rutas más seguras a partir de datos oficiales y reportes de la comunidad. La plataforma también incorpora un botón de emergencia (SOS) para contactar rápidamente a servicios de asistencia y contactos de confianza, además de Orbits, grupos sociales que permiten compartir la ubicación en tiempo real con personas seleccionadas. Complementariamente, cuenta con un back office para la actualización ágil de información de seguridad, ofreciendo una solución integral para desplazarse con mayor tranquilidad en Argentina.",
+    "field6": "https://drive.google.com/open?id=1tYGq5mcK6kKdd_moGG1kV6j9ZbOrKhlY",
+    "Impacto": "Cultural, Social, Tecnológico",
+    "ODS": "Paz, justicia e instituciones sólidas",
+    "SuperTags": "Autos y vehículos, Mapas y navegación, Tecnología, Viajes y local, Seguridad",
+    "Integrantes": "Jazmin A, Valentina E, Diana P, Joaquin I",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 50,
+    "Nombre": "NEXIA",
+    "Especialidad": "Informática",
+    "Slogan": "Campus virtual con una IA integrada, la cual incentiva el razonamiento del estudiante y su organizacion",
+    "Descripcion": "Nuestro proyecto consiste en el desarrollo de una plataforma educativa virtual orientada a instituciones que actualmente no cuentan con herramientas digitales de gestión académica. La solución centraliza la comunicación entre alumnos, docentes y directivos mediante funcionalidades como calendario académico, mensajería, gestión de contenidos y entregas, funcionando bajo un modelo SaaS adaptable a cada institución. Como diferencial, incorpora una inteligencia artificial con enfoque pedagógico que guía a los estudiantes en el proceso de aprendizaje sin brindar respuestas directas, fomentando el razonamiento crítico y el aprendizaje autónomo. El objetivo es reducir la brecha tecnológica educativa, mejorar el seguimiento académico y contribuir a disminuir la repitencia escolar en Argentina.",
+    "field6": "https://drive.google.com/open?id=1PKHMBXmMJJ0vD2Zj5zBesfkUq3790Jo1",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Educación de calidad",
+    "SuperTags": "Educación, Inteligencia Artificial, Tecnología",
+    "Integrantes": "Zoe Acquistapace, Manuel Mandel, Uriel Joaquin Galanti, Felipe Andraca",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 51,
+    "Nombre": "PacKen",
+    "Especialidad": "Informática",
+    "Slogan": "Sistema para empresa logisitica de envio de paquetes.",
+    "Descripcion": "pacKen es una plataforma integral de software logístico diseñada para optimizar los servicios de envío en el mismo día (entregas Flex) operando bajo un modelo ágil de cross-docking. El sistema centraliza toda la operación al conectar un panel de administración web con herramientas de campo para los transportistas, permitiendo automatizar el ingreso de paquetes mediante el escaneo de códigos QR, asignar recorridos basados en zonas geográficas y actualizar los estados de entrega en tiempo real, garantizando así una trazabilidad exacta desde que el vendedor despacha el producto hasta que llega a las manos del comprador.",
+    "field6": "https://drive.google.com/open?id=1xlOjipZW7j-d3j673bebf7R_X1GqALlw",
+    "Impacto": "Económico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Autos y vehículos, Finanzas, Mapas y navegación, Tecnología, Viajes y local",
+    "Integrantes": "Aaron Martin K, Tobias N, Tobias E",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 52,
+    "Nombre": "ElderTech",
+    "Especialidad": "Informática",
+    "Slogan": "Aplicación móvil accesible para residentes de geriátricos que fomenta y facilita el uso de tecnologia",
+    "Descripcion": "ElderTech es una aplicación móvil accesible desarrollada para residentes de geriátricos, diseñada para fomentar y facilitar el uso de la tecnología en adultos mayores mediante una interfaz simple, intuitiva y adaptada a sus necesidades. La aplicación centraliza herramientas de uso cotidiano como la consulta de horarios y actividades del geriátrico, llamadas y WhatsApp simplificados, tutoriales educativos sobre tecnología, información del clima, radios online, asistente virtual con voz y otras funcionalidades orientadas al entretenimiento, la comunicación y la inclusión digital. El proyecto prioriza la accesibilidad mediante botones grandes, navegación sencilla, alto contraste visual y una experiencia estable que reduzca la sobrecarga cognitiva, permitiendo que los residentes utilicen la tecnología de forma autónoma y segura.",
+    "field6": "https://drive.google.com/open?id=1ZJj2A5fSx9_ibn54af737vg1fU6fAyeK",
+    "Impacto": "Cultural, Social, Tecnológico",
+    "ODS": "Educación de calidad",
+    "SuperTags": "Educación, Entretenimiento, Inclusión, Inteligencia Artificial, Música, audio y video, Noticias y revistas, Tecnología",
+    "Integrantes": "Tobías D, Nicolás S, Andrés F",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 53,
+    "Nombre": "LUMA",
+    "Especialidad": "Informática",
+    "Slogan": "Conectamos mascotas que buscan un hogar con personas listas para adoptarlas.",
+    "Descripcion": "LUMA es una aplicación móvil que transforma la adopción de mascotas en una experiencia simple, acompañada y transparente. Reúne en un solo lugar a adoptantes, refugios y rescatistas, permitiendo descubrir animales en adopción, postularse, seguir cada etapa del proceso y acceder a recursos que promueven adopciones responsables. Al centralizar información, comunicación y seguimiento, LUMA ayuda a que más animales encuentren el hogar adecuado y a que las organizaciones puedan gestionar sus adopciones de forma más eficiente.",
+    "field6": "https://drive.google.com/open?id=1Ik_oBt-egCR-frkAr7BP8sj2qaRXImg7",
+    "Impacto": "Social",
+    "ODS": "Vida de ecosistemas terrestres",
+    "SuperTags": "Casa y hogar, Sustentabilidad, Tecnología, Animales",
+    "Integrantes": "Juana L y Iara S",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 54,
+    "Nombre": "Pilchix",
+    "Especialidad": "Informática",
+    "Slogan": "Aplicacion estilo morfy basado en el rubro de ropa y accesorios",
+    "Descripcion": "Aplicacion web en la que marcas publicitan sus productos en base a promociones y los usuarios clientes pueden ver esas promociones",
+    "field6": "https://drive.google.com/open?id=1FU7OqVfUFBA_aOinnyy9Uph6vKJHA0JD",
+    "Impacto": "Económico, Social, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Arte y diseño, Compras, Tecnología",
+    "Integrantes": "Alan V, Felipe F, Suti U, Maximo P",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 55,
+    "Nombre": "Invotrack",
+    "Especialidad": "Informática",
+    "Slogan": "La mejor plataforma web para gestionar inventario, facturación y operaciones de múltiples empresas.",
+    "Descripcion": "InvoTrack es una plataforma web diseñada para centralizar y optimizar la gestión empresarial. Permite administrar inventario, productos, clientes, proveedores, facturación y movimientos de stock desde un único sistema. Su arquitectura está preparada para múltiples empresas, ofreciendo control de accesos por usuarios y roles, trazabilidad de operaciones y una experiencia moderna que facilita la toma de decisiones y mejora la eficiencia de los procesos administrativos y comerciales.",
+    "field6": "https://drive.google.com/open?id=1RNl2pQNlRFN7vJ4QFwa2B9YNEm_RXc6c",
+    "Impacto": "Económico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Finanzas",
+    "Integrantes": "Ciro P y Dante MY",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 56,
+    "Nombre": "Vloger",
+    "Especialidad": "Informática",
+    "Slogan": "Una solución que redacta artículos originales sobre autopartes para Alephee en base al scrapeo de fuentes.",
+    "Descripcion": "Entramos en una pasantía en Alephee en la cual debemos crear una solución implementando AI que scrapee fuentes acerca de autopartes, para luego armar artículos originales que se suban a su blog para promocionarse tanto a ellos mismos, como a sus propios clientes.",
+    "field6": "https://drive.google.com/open?id=1G5agbJN6Q2-rSHXikJ0P1dDiBgRPIRS5",
+    "Impacto": "Económico",
+    "ODS": "Ninguno",
+    "SuperTags": "Autos y vehículos, Comunicaciones, Noticias y revistas",
+    "Integrantes": "Manuel G, y Sebastián C",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 57,
+    "Nombre": "Bookly",
+    "Especialidad": "Informática",
+    "Slogan": "Plataforma de compra-venta de libros escolares usados entre alumnos",
+    "Descripcion": "Bookly consiste de una plataforma, en formato web y aplicación, en la cual estudiantes de séptimo (11/12 años) en adelante pueden poner a la venta libros que ya no usan, así como explorar el catálogo para comprar de otros alumnos de su misma institución los libros que necesiten. Una vez el alumno encuentra el libro que desea, puede contactarse con el vendedor para acordar el lugar de encuentro, y, si así lo desea, negociar el precio.",
+    "Impacto": "Económico, Social",
+    "ODS": "Educación de calidad",
+    "SuperTags": "Compras, Comunicaciones, Educación, Libros y referencias, Sustentabilidad",
+    "Integrantes": "Damián C, Facundo L, Santiago S, Jonatan N",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 58,
+    "Nombre": "SNOP",
+    "Especialidad": "Informática",
+    "Slogan": "SNOP es una aplicación que busca automatizar la organización de clubes de tenis de mesa",
+    "Descripcion": "SNOP es una app móvil que conecta socios, entrenadores y administradores de clubes de tenis de mesa en un solo lugar. La idea surgió de un problema concreto: el Club Porteño de Tenis de Mesa manejaba todos los turnos, clases particulares, torneos y comunicados con Excel y WhatsApp, generando desorganización constante.\nLa solución centraliza todo eso en una plataforma simple: reserva de turnos, inscripción a juego libre, publicación de horarios de entrenadores y organización de torneos internos. El nombre viene de spin y top, dos términos del tenis de mesa.\nEl objetivo es eliminar esa informalidad y reemplazarla por una herramienta clara, accesible y fácil de usar desde el celular. La idea a largo plazo es que no quede solo en un club: una vez probado el modelo, cualquier otro club deportivo podría adoptarlo, convirtiéndolo en una plataforma escalable para la gestión de clubes en general.",
+    "field6": "https://drive.google.com/open?id=1v5HeUoWRXJ08a9QEdbVwUAsHt9nHVlqi",
+    "Impacto": "Social",
+    "ODS": "Ninguno",
+    "SuperTags": "Deportes, Eventos, Tecnología, organizacion",
+    "Integrantes": "Gael Z, Julian H, Julian C, Damian L",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '59-2',
+    "Nombre": "Ruta Verde",
+    "Especialidad": "Informática",
+    "Slogan": "Crear una pagina web a una red solidaria de plantas nativas.",
+    "Descripcion": "Centralizar la información en una pagina web sobre Ruta Verde. Parte de la red solidaria. Ayuda al cambio climático mediante la plantación de plantas nativas.",
+    "field6": "https://drive.google.com/open?id=1a4GQew4p4R9Ocanq2zZFVtZYElOR9azg",
+    "Impacto": "Ambiental, Tecnológico",
+    "ODS": "Acción por el clima",
+    "SuperTags": "Arte y diseño, Inteligencia Artificial, Mapas y navegación, Sustentabilidad, Tecnología",
+    "Integrantes": "Sofia Z, Ailin S, Victoria K",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 60,
+    "Nombre": "Wanna Be My Friend",
+    "Especialidad": "Informática",
+    "Slogan": "Videojuego que genera un espacio interactivo para promover la inclusión social en entornos educativos",
+    "Descripcion": "En Wanna Be My Friend, el jugador ocupa el rol de un adolescente que debido a motivos personales, se ve obligado a ingresar a una nueva escuela donde no conoce a nadie. Empezando desde cero , el jugador debe abrirse paso en un ambiente desconocido mientras transcurre el año escolar. Podrá explorar todo el edificio, hablar con los alumnos o los maestros o concentrarse en estudiar para los exámenes. A medida que pase el tiempo y que vaya haciendo amigos, se cruzará con eventos, relacionados o no con sus amistades, en los que se verá forzado a tomar una decisión que afectará como lo ven los demás personajes .",
+    "field6": "https://drive.google.com/open?id=1yB7jtb2Bwk07ju7AMRfgVAf5FQDPiypK",
+    "Impacto": "Cultural, Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño, Entretenimiento, Inclusión, Música, audio y video, Salud y Medicina",
+    "Integrantes": "Federico dlP S, Eitan K, Flor S, Tomas L",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 61,
+    "Nombre": "MixSpace",
+    "Especialidad": "Informática",
+    "Slogan": "Plug-in de FL Studio para Subir, organizar y acceder a proyectos facilmente",
+    "Descripcion": "Nuestra idea es resolver una problematica que nos trasciende, la localidad a la hora de guardar o actualizar proyectos de FL Studio, lo que no permite colaboración ni fácil acceso. Para eso queremos desarrollar una herramienta intuitiva e integrada con el uso rutinario de la aplicación.",
+    "field6": "https://drive.google.com/open?id=1FL5BirZTZSDeQSkIDWGvkCX9QvxRI_Ug",
+    "Impacto": "Cultural, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Comunicaciones, Entretenimiento, Música, audio y video",
+    "Integrantes": "Ignacio K y Pedro M",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 62,
+    "Nombre": "ViajaYA",
+    "Especialidad": "Informática",
+    "Slogan": "ViajaYA compara Uber, Didi y Cabify para encontrar el mejor viaje disponible.",
+    "Descripcion": "ViajaYA es una aplicación móvil que permite comparar distintas opciones de transporte en un solo lugar. Los usuarios pueden ingresar su origen y destino y elegir el viaje que mejor se adapte a sus necesidades según criterios como precio, tiempo estimado de llegada o calidad del servicio, facilitando una decisión rápida, cómoda y conveniente.",
+    "field6": "https://drive.google.com/open?id=10QVyPIU2ZxWnBwvFtfKhAZLk0O5__9Ap",
+    "Impacto": "Económico, Tecnológico",
+    "ODS": "Ninguno",
+    "SuperTags": "Autos y vehículos, Mapas y navegación, Tecnología, Viajes y local",
+    "Integrantes": "Ludmila G, Andres P, Ivan S y Federico A",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 63,
+    "Nombre": "Rading",
+    "Especialidad": "Informática",
+    "Slogan": "Conectar trabajadores y clientes en la realización de servicios(domésticos, tecnlógicos, etc.)",
+    "Descripcion": "Rading es una aplicación móvil que conecta de forma rápida, segura y eficiente a personas que necesitan contratar servicios con trabajadores independientes, profesionales y freelancers que desean ofrecerlos. La plataforma permite buscar por ubicación, disponibilidad, especialidad y reseñas, además de incluir funciones como chat integrado, publicación de trabajos con presupuesto, sistema de subastas, servicio de emergencias, pagos protegidos y perfiles verificados. Su objetivo es centralizar la oferta y la demanda de servicios en un solo lugar, facilitando la generación de oportunidades laborales y brindando una experiencia confiable tanto para clientes como para prestadores.",
+    "field6": "https://drive.google.com/open?id=1mjm4zfKTYi5GGAnlSgRO85yeKJGiN2gT",
+    "Impacto": "Económico, Social",
+    "ODS": "Trabajo decente y crecimiento económico",
+    "SuperTags": "Casa y hogar, Comunicaciones, Finanzas, Búsqueda de servicios y trabajo",
+    "Integrantes": "Nicolas J, Santiago H, Santiago C, Alan L",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 64,
+    "Nombre": "Zooni",
+    "Especialidad": "Informática",
+    "Slogan": "Aplicación para mascotas que conecta dueños con servicios cercanos, seguimiento de paseos y comunidad.",
+    "Descripcion": "Aplicación para dueños de mascotas que permite encontrar veterinarias, paseadores, petshops y peluquerias cercanas. Lo diferencial es el seguimiento de paseos en vivo y conectarse con otros usuarios mediante un sistema de match. Combina funciones de servicio con una parte social para facilitar el cuidado de la mascota y el contacto entre personas con mascotas.",
+    "field6": "https://drive.google.com/open?id=1blFgWv2hFPQXn772JMLuxcY4ianjS34j",
+    "Impacto": "Económico, Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Casa y hogar, Citas, Comunicaciones, Eventos, Mapas y navegación, Cuidado de mascotas",
+    "Integrantes": "Ignacio E, Theo T, Lior T, Santiago D y Lucas D",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 65,
+    "Nombre": "Catanova",
+    "Especialidad": "Informática",
+    "Slogan": "Plataforma digital que ayuda a comercios a gestionar stock, productos y ventas de forma simple.",
+    "Descripcion": "Catanova es una plataforma digital orientada a pequeños y medianos comercios que buscan modernizar, y facilitar dependiendo del caso, la gestión de sus negocios. Permite administrar productos, controlar el stock, organizar ventas y contar con una presencia online desde un único sistema intuitivo y accesible. Su objetivo es simplificar los procesos comerciales, reducir errores administrativos y brindar nuevas oportunidades de crecimiento a través de herramientas digitales adaptadas a las necesidades de cada cliente/tienda como una IA adaptada exclusivamente a cada uno.",
+    "field6": "https://drive.google.com/open?id=1kqpFMbfIc1w4uhX_i5UekPgA7br52yPi",
+    "Impacto": "Económico, Tecnológico",
+    "ODS": "Trabajo decente y crecimiento económico",
+    "SuperTags": "Compras, Finanzas, Inteligencia Artificial, Tecnología, Comercios y gestión de negocio",
+    "Integrantes": "Maximo H, Tomás G, Federico A y Ciro R",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 66,
+    "Nombre": "SheliGo",
+    "Especialidad": "Informática",
+    "Slogan": "SheliGo conecta personas y objetos perdidos para recuperarlos de forma simple y segura.",
+    "Descripcion": "SheliGo es una plataforma digital que facilita la búsqueda, gestión y devolución de objetos perdidos en instituciones como clubes, gimnasios y escuelas. A través de un sistema centralizado, permite reportar objetos perdidos o encontrados, generar coincidencias entre publicaciones y coordinar devoluciones de forma rápida, segura y organizada, brindando confianza, seguridad y tranquilidad a toda la comunidad.",
+    "field6": "https://drive.google.com/open?id=1xcCZvd7AHlhuNAa9dMZghDeB-Gcynl-i",
+    "Impacto": "Social",
+    "ODS": "Alianzas para lograr los objetivos",
+    "SuperTags": "Comunicaciones, Deportes, Educación, Entretenimiento, Eventos, Inteligencia Artificial, Mapas y navegación, Tecnología",
+    "Integrantes": "Micaela B, Eliel J, Maica T y Morena Z",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 67,
+    "Nombre": "GlobeTapx",
+    "Especialidad": "Informática",
+    "Slogan": "GlobeTapX facilita viajes con información práctica, turística y cultural de países del mundo.",
+    "Descripcion": "GlobeTapX es una aplicación web que permite explorar países mediante un mapa interactivo y acceder a información útil para viajar de forma más segura y organizada. Además de datos turísticos como ciudades, lugares de interés y clima, ofrece información práctica sobre moneda, transporte, normas locales, seguridad, idioma, enchufes, números de emergencia, requisitos de viaje, costumbres culturales y otros aspectos importantes que ayudan a los viajeros a tomar decisiones informadas antes y durante sus viajes.",
+    "field6": "https://drive.google.com/open?id=1iNMkoM2sa-wOobURYoCOcV38DQew6TGr",
+    "Impacto": "Cultural, Social",
+    "ODS": "Educación de calidad",
+    "SuperTags": "Compras, Educación, Eventos, Finanzas, Mapas y navegación, Tecnología, Viajes y local",
+    "Integrantes": "Bruno R, Sofia S, Kiara B",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 68,
+    "Nombre": "Comuni Plus",
+    "Especialidad": "Informática",
+    "Slogan": "Comuni+ organiza y centraliza la comunicación de comunidades en una sola aplicación.",
+    "Descripcion": "Comuni+ es una aplicación diseñada para mejorar la comunicación y organización dentro de comunidades como clubes, colegios y asociaciones. La plataforma centraliza toda la información en un solo lugar y la divide por categorías como transporte, deportes, actividades, ventas y consultas, evitando el desorden generado por múltiples grupos de WhatsApp. De esta manera, los usuarios pueden encontrar información más rápido, participar solo en los temas que les interesan y mantener una comunicación más clara y ordenada.",
+    "field6": "https://drive.google.com/open?id=1qLBlhB2JF_6bLl8DGwbLBj6zX_U2r7F5",
+    "Impacto": "Social",
+    "ODS": "Ciudades y comunidades sostenibles",
+    "SuperTags": "Compras, Comunicaciones, Deportes, Noticias y revistas, Viajes y local",
+    "Integrantes": "Delfina K, Gael M, Uriel H, Federico K",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 69,
+    "Nombre": "Track & Charm",
+    "Especialidad": "Gestión Almagro",
+    "Slogan": "Charm que posee un chip rastreador integrado, permitiendo la localización de objetos y personas.",
+    "Descripcion": "Nuestro emprendimiento consta de un charm que tiene en su interior un chip rastreador que permite la localización de objetos y personas. Al ser un accesorio, combinamos tecnología, seguridad y moda, adaptándonos al estilo y personalidad de nuestros consumidores.",
+    "field6": "https://drive.google.com/open?id=1nG1Y7NWGR6Dz6YJTzE0Vv1FzdNzhSUl2",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Belleza y cuidado personal, Mapas y navegación, Tecnología",
+    "Integrantes": "Brisa S, Magalí S, Martina O, Lucio T.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 70,
+    "Nombre": "Technology Lens",
+    "Especialidad": "Informática",
+    "Slogan": "Una aplicacion que funciona en eventos para que tu seguridad no se falsifique.",
+    "Descripcion": "Nuestro proyecto es una aplicacion que funciona para la seguridad en el ingreso de eventos con un sistema de reconocimiento facial. La aplicacion tiene un apartado para los usuarios que asisten a los eventos, los cuales hacen un escaneo de reconocimiento facial en el momento que se registran en la aplicacion. Una parte muy importante de la aplicacion es la parte de los administradores del evento, los cuales tienen permisos especiales que les permite designar cual va a ser el personal de seguridad de un evento, estas personas designadas van a tener un apartado en la aplicacion la cual les servira para verificar los rostros el dia del evento, ademas los administradores tendran a su disposicion datos y estadisticas del eventos.",
+    "field6": "https://drive.google.com/open?id=1nGF4xXORrGbWZOr4eju9dj8-y-IdAZ1m",
+    "Impacto": "Económico, Social, Tecnológico",
+    "ODS": "Ninguno",
+    "SuperTags": "Compras, Eventos, Finanzas, Inteligencia Artificial, Tecnología",
+    "Integrantes": "Benjamin L y Tobias T",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 71,
+    "Nombre": "Sunken Stag & Over",
+    "Especialidad": "Informática",
+    "Slogan": "Simulador de gestión de recursos, donde se concientiza moralmente al jugador",
+    "Descripcion": "Un videojuego de simulador de gestion de recursos en el que tienes que solventar una deuda heredada, durante el cual se intentará concientizar moral y éticamente al jugador sobre sus acciones tomadas durante el transcurso de la partida siendo el tema principal la fabrica petrolera y la contaminación y gestion de máquinas y personal.",
+    "field6": "https://drive.google.com/open?id=12JB14t3eEqw6V00uBa2wE7E_Uvu5cQSb",
+    "Impacto": "Ambiental, Económico",
+    "ODS": "Energía asequible y no contaminante",
+    "SuperTags": "Energías renovables, Entretenimiento, Finanzas, Sustentabilidad",
+    "Integrantes": "Joaquín M, Nicolas F y Milena W.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 72,
+    "Nombre": "Rember",
+    "Especialidad": "Informática",
+    "Slogan": "Una plataforma para facilitar y organizar el cuidado de adultos mayores.",
+    "Descripcion": "Es una plataforma diseñada para facilitar el seguimiento y acompañamiento de personas mayores con deterioro cognitivo, mejorando la comunicación y coordinación entre familiares, cuidadores y profesionales de la salud.\nLa plataforma incluye herramientas como tests validados por profesionales, registros de conductas y cambios relevantes, sugerencias de seguimiento médico y generación automática de reportes listos para llevar a una consulta.\nNuestro objetivo es brindar tranquilidad, organización y apoyo a quienes cuidan, al mismo tiempo que promovemos una mejor calidad de vida para las personas mayores.",
+    "field6": "https://drive.google.com/open?id=1cQHt577A9P0Q-7SvCWeKfp7dVmBqTbRf",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Inclusión, Salud y Medicina",
+    "Integrantes": "Lucas R, Camila Z, Victoria T y Canela L",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 73,
+    "Nombre": "Ghoslight productions",
+    "Especialidad": "Producción Artística",
+    "Slogan": "Partimos de la pregunta ¿Cómo afecta la idealización de vínculos pasados a la construcción de  nuevos vínculos en el presente?",
+    "Descripcion": "Realizaremos una serie de reversiones de temas musicales, que formarán parte de un material audiovisual (videoclip) que narra una historia en la que queremos representar cómo la idealización de vínculos pasados nos estanca y no nos permite avanzar.",
+    "Impacto": "Cultural",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño",
+    "Integrantes": "Thiara B.O- Julia M -Charo G\n- Matías S\n-Joaquín C\n- Magalí M B",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 74,
+    "Nombre": "Dilema moral",
+    "Especialidad": "Producción Artística",
+    "Slogan": "Partimos de la pregunta ¿Importa realmente hacer justicia cuando la verdad perjudica a alguien que querés?",
+    "Descripcion": "Se trata de un cortometraje en el cual abordamos las distintas posibles respuestas a nuestra pregunta a través de distintos personajes representan cada uno, una respuesta posible.",
+    "Impacto": "Cultural",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño, Entretenimiento, Música, audio y video",
+    "Integrantes": "Abril G M, Carola M, Ariel S, Micaela V, Sofía B E, Tatiana B",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 75,
+    "Nombre": "Entrepisos producciones",
+    "Especialidad": "Producción Artística",
+    "Slogan": "Tomamos como punto de partida la pregunta ¿COMO INFLUYEN LOS PREJUICIOS EN NUESTRAS DECISIONES, COMPORTAMIENTOS Y FORMAS DE VER A LAS PERSONAS?",
+    "Descripcion": "La respondemos a través de una mini serie en la que mostraremos las distintas perspectivas y puntos de vista sobre un mismo grupo de personas, evidenciando el funcionamiento de los prejuicios en las relaciones cotidianas.",
+    "Impacto": "Cultural",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño, Música, audio y video",
+    "Integrantes": "Mía T\nRenata de P A\nJulia B\nAvril V\nHelena O F\nIara F",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 76,
+    "Nombre": "Alma Nuclear",
+    "Especialidad": "Producción Artística",
+    "Slogan": "Queremos responder la pregunta ¿Cómo darnos cuenta si estamos sanando o si estamos ocultando el daño?",
+    "Descripcion": "Realizamos un cortometraje ficcional en el que abordamos el tema del registro emocional propio, a través de un personaje que atraviesa distintas situaciones y no logra una gestión emocional adecuada.",
+    "Impacto": "Cultural",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño, Salud y Medicina",
+    "Integrantes": "Tatiana D\nCatalina J\nAstrid A\nJulia E\nErika R\nRené F",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 77,
+    "Nombre": "OPA",
+    "Especialidad": "Informática",
+    "Slogan": "Ayudamos a marcas de ropa emergentes a tener una mayor exposicion y a la gente a encontrar su estilo",
+    "Descripcion": "OPA busca ayudar a marcas de ropa argentinas emergentes a tener una mayor exposicion unificando todas estas marcas en un mismo sitio. Ademas ayudamos a que nuestros usuarios encuentren su estilo mediante referencias que suban las marcas u otros usuarios en forma de \"outfits\" los cuales pueden ver scrolleando tal y como en Instagram Reels o Tiktok pudiendo tambien comprar estas prendas.",
+    "field6": "https://drive.google.com/open?id=1Oy1p3yDk3upSC9tdgSzuhhGt6-lrRTwi",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Producción y consumo responsables",
+    "SuperTags": "Belleza y cuidado personal, Compras, Entretenimiento, Fotografía, Inclusión, Inteligencia Artificial, Moda",
+    "Integrantes": "Maximiliano B y Cecilia A",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '78-1',
+    "Nombre": "NefroKids",
+    "Especialidad": "Informática",
+    "Slogan": "NefroKids educa y acompaña a niños que realizan diálisis peritoneal mediante juegos interactivos y seguimiento",
+    "Descripcion": "NefroKids es una aplicación móvil diseñada para acompañar a niños con insuficiencia renal que, como parte de su tratamiento, realizan diálisis peritoneal, así como a sus familias. A través de juegos interactivos, contenidos educativos adaptados a su edad y herramientas de seguimiento, busca ayudar a los pacientes a comprender mejor su enfermedad y tratamiento, fomentar la adherencia a los cuidados necesarios y transformar una experiencia compleja en un proceso más amigable, participativo y comprensible.",
+    "field6": "https://drive.google.com/open?id=161qbV15XEnVpOuCgQ8V23UWLYsKMIpam",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño, Educación, Entretenimiento, Inclusión, Libros y referencias, Música, audio y video, Paternidad y maternidad, Salud y Medicina, Tecnología, Concientización",
+    "Integrantes": "Florencia S,  Brisa M, Julieta U, Tomas G",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 79,
+    "Nombre": "ConectAr",
+    "Especialidad": "Informática",
+    "Slogan": "Red Social que promueve la interacción social y presencial entre personas mediante eventos.",
+    "Descripcion": "ConectAr es una aplicación orientada a jóvenes de entre 18 y 25 años de Buenos Aires que busca facilitar la creación de vínculos en la vida real a partir de intereses en común. La plataforma permite descubrir, crear y unirse a eventos relacionados con actividades como deportes, música, juegos y otros hobbies, brindando un espacio seguro y accesible para que las personas puedan conocerse, organizar salidas y ampliar sus círculos sociales.",
+    "field6": "https://drive.google.com/open?id=1uFhH2J5XxHfxuDPcd2urWwnyNiOPbdS8",
+    "Impacto": "Cultural, Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Comunicaciones, Deportes, Entretenimiento, Eventos",
+    "Integrantes": "Alejo C, Fidel G y Agustín A",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 80,
+    "Nombre": "Sportlink",
+    "Especialidad": "Informática",
+    "Slogan": "Conectar deportistas, clubes y entrenadores brindándole herramientas que benefician a todos",
+    "Descripcion": "SportLink conecta a deportistas, clubes y entrenadores en un mismo lugar, facilitando el acceso a oportunidades deportivas. Los deportistas pueden buscar clubes según ubicación, inscribirse a pruebas y encontrar entrenamientos subidos por entrenadores para mejorar su rendimiento. Por su parte, los entrenadores pueden ofrecer sus servicios, conseguir alumnos y aplicar a búsquedas laborales, mientras que los clubes pueden publicar pruebas, captar talento y encontrar entrenadores según sus necesidades publicando empleos dependiendo lo que necesiten.",
+    "field6": "https://drive.google.com/open?id=1HpQhFL8eJUoUKCXTeW5WXzPctQ21Vpmn",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Alianzas para lograr los objetivos",
+    "SuperTags": "Comunicaciones, Deportes, Eventos, Inclusión, Tecnología",
+    "Integrantes": "Lucas C, Alan G, Nicolas C, Juan C",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '81-3',
+    "Nombre": "MedEx",
+    "Especialidad": "Informática",
+    "Slogan": "MedEx: unifica historial clínico del paciente y lo sincroniza en tiempo real con médicos.",
+    "Descripcion": "MedEx es una app de salud que centraliza el historial clínico del paciente (estudios, recetas, diagnósticos y vacunas) en un solo lugar seguro, y lo sincroniza en tiempo real con los profesionales médicos. El paciente autoriza el acceso temporal a su información, y el sistema genera automáticamente resúmenes clínicos con IA, detecta alertas de interacciones medicamentosas y permite derivaciones instantáneas entre especialistas, terminando con la fragmentación de datos entre instituciones.",
+    "field6": "https://drive.google.com/open?id=1EM3ufbmjgo47cJuHFtOhH6pLgW-TAqde",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Paternidad y maternidad, Salud y Medicina",
+    "Integrantes": "Catalina C, Chloe M, Ilan B y Felipe B",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 82,
+    "Nombre": "SmartLot",
+    "Especialidad": "Informática",
+    "Slogan": "Plataforma de gestión que optimiza estacionamientos corporativos de manera inteligente.",
+    "Descripcion": "SmartLot resuelve el problema de la escasez de espacios en las organizaciones permitiendo a los empleados asegurar su cochera con anticipación. Su principal ventaja competitiva es el bajo costo de implementación, ya que descarta la infraestructura costosa de cámaras a favor de una validación operativa ágil, donde el personal de seguridad registra las entradas y salidas para liberar lugares en tiempo real. Todo el ecosistema se sostiene sobre una jerarquía flexible configurada a medida desde un back-office centralizado, adaptándose a la estructura exacta de cada cliente sin fricciones.",
+    "field6": "https://drive.google.com/open?id=1ltzUR6W0fm0DQkljSwYptdS4pLYBVQdY",
+    "Impacto": "Económico, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Autos y vehículos, Tecnología",
+    "Integrantes": "Augusto T, Franco C, Franco U, Tobias R, Facundo A",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 83,
+    "Nombre": "LaburApp",
+    "Especialidad": "Informática",
+    "Slogan": "LaburApp conecta personas que buscan trabajos ocacionales con aquellos que necesitan ayuda en tareas cotidianas.",
+    "Descripcion": "LaburApp es una aplicación móvil que conecta personas que buscan realizar trabajos ocasionales con gente que necesita ayuda para tareas cotidianas y puntuales, como pasear perros, cuidar niños, asistir a personas mayores o realizar pequeñas tareas domésticas. La plataforma busca resolver la desconexión actual entre la oferta y la demanda de este tipo de trabajos, que hoy se gestiona de forma informal y desorganizada a través de grupos de WhatsApp, carteles o recomendaciones. Centralizando la publicación y búsqueda de tareas en un solo lugar, junto con perfiles, valoraciones y mecanismos de confianza, LaburApp ofrece una vía para generar ingresos e independencia, y a los adultos una solución rápida, segura y confiable para resolver sus necesidades diarias.",
+    "field6": "https://drive.google.com/open?id=1t3mvNwLjZPvHZzQdkCZMZ0nvVyMl3WhD",
+    "Impacto": "Económico, Social, Tecnológico",
+    "ODS": "Trabajo decente y crecimiento económico",
+    "SuperTags": "Casa y hogar, Finanzas, Tecnología, trabajo",
+    "Integrantes": "Matias W, Naomi S, Facundo C, Luciano V",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 84,
+    "Nombre": "Melodika",
+    "Especialidad": "Informática",
+    "Slogan": "Plataforma musical que permite aprender musica de manera interactiva y divertida.",
+    "Descripcion": "Melodika es una plataforma de aprendizaje musical que combina educación y gamificación para ofrecer una experiencia interactiva y motivadora, ayudando a los usuarios a desarrollar sus habilidades musicales de una manera más dinámica y atractiva.",
+    "field6": "https://drive.google.com/open?id=1Vd91zEDT6zmf7UvFaMvQs7jvGfFMS2ng",
+    "Impacto": "Cultural, Social",
+    "ODS": "Educación de calidad",
+    "SuperTags": "Comunicaciones, Educación, Entretenimiento, Inteligencia Artificial, Música, audio y video",
+    "Integrantes": "Federico D. Ivan M. Gaston D. Juan Manuel L.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 85,
+    "Nombre": "spaldUp",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistema inteligente para detección de postura",
+    "Descripcion": "El equipamiento técnico específico que necesitan los kinesiólogos para medir parámetros de postura de la manera óptima es costoso ya que no es fabricado localmente y abarca extensas funciones. Es por esto que muchos centros de kinesiología no pueden adquirirlo. Aislando una función, podríamos desarrollar un equipo accesible para más especialistas, logrando que más pacientes puedan recibir devoluciones precisas sobre su progreso.",
+    "field6": "https://drive.google.com/open?id=1_ikWNVMx1Am7hA5BJOcBKISw7pp6KZnR",
+    "Impacto": "Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina",
+    "Integrantes": "Pilar G., Ezequiel L. Julian L., Martin P.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 86,
+    "Nombre": "CruzAR",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistema de semáforos y cruce para personas no videntes",
+    "Descripcion": "Las personas con discapacidad visual tienen una gran dificultad a la hora de cruzar la calle, especialmente en avenidas o calles con tránsito considerable.\nAnte esto, optamos por hacer un proyecto que tenga como objetivo principal dar independencia a las personas no videntes a la hora tomar un cruce a través de una pulsera que le indica cuando y como cruzar.",
+    "field6": "https://drive.google.com/open?id=1lYL5Pbrwq6JC7YPm8hSbC1O1P6Bix95N",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Inclusión, Salud y Medicina, Tecnología",
+    "Integrantes": "Matteo B.,  Santino C., Blas R.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 87,
+    "Nombre": "ecgFlow",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistema de transmisión cardiográfica en tiempo real",
+    "Descripcion": "La mayoría de las veces que ocurre una emergencia médica crítica esta sucede en la casa de la víctima. Tras esto debe ser trasladado en ambulancia hasta el hospital. Si este evento es de tipo cardiológico al paciente se le hace un electrocardiograma. El problema es que la mayoría de los enfermeros que están dentro del vehículo no tienen el suficiente conocimiento para poder recetar la droga que debe recibir el paciente.\nProponeos desarrollar un dispositivo capaz de enviar la señal en tiempo real a un cardiólogo para que este pueda instruir a los enfermeros dentro de la ambulancia qué droga utilizar.",
+    "field6": "https://drive.google.com/open?id=1Qiiv80rmHofj6PB7SBty8yIA-u7yS21e",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Tecnología",
+    "Integrantes": "Martin K., Bautista K., Federico S., Valentina G.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 88,
+    "Nombre": "respiraPet",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistema de monitoreo fisiologico y de comportamiento de mascotas.",
+    "Descripcion": "Desarrollar un arnés inteligente capaz de monitorear la respiración y actividad del perro de forma continua y no invasiva, generando alertas ante patrones inusuales.\nEl sistema combinará sensores físicos con una aplicación móvil que permitirá registrar, interpretar y contextualizar los datos. Ante detección de anomalías, el usuario podrá proporcionar información adicional (por ejemplo: “estuvo corriendo” o “estaba nervioso”), mejorando la precisión del sistema con el uso.\nEl enfoque principal es lograr una solución accesible, cómoda para el animal y basada en datos confiables, priorizando la detección de cambios de comportamiento por sobre mediciones clínicas complejas.",
+    "field6": "https://drive.google.com/open?id=1jcAFk04IDRj9XUDDhRc-qTnYHNX3FVE4",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Vida de ecosistemas terrestres",
+    "SuperTags": "Casa y hogar, Salud y Medicina",
+    "Integrantes": "Paloma G. G., Renata G., Violeta P., Renata S. W.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 89,
+    "Nombre": "HablaPlay",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistema de asistencia para rehabilitación fonoaudiológica",
+    "Descripcion": "Los niños que se encuentran en procesos fonológicos de solidificación, les cuesta asociar palabras con sus significados. Suelen pronunciar mal una sílaba y pensar que está bien sin saber que estan diciendo algo distinto. \nPor esto proponemos un dispositivo que ayude a asociar las palabras con sus significados. Este debe estimular al niño haciéndolo ver más como un juego antes que una obligación.\nLos niños con dificultades en el habla (que tienen un desarrollo más lento) suelen asistir a fonoaudiólogos e ir una vez por semana por lo cual el aprendizaje se ve ralentizado. Por esto proponemos un dispositivo  ludico funcional el cual mediante un tablero que reproduce la pronunciación de algunas letras y el niño lo tiene que repetir y ver que este diciendo bien lo debido.",
+    "field6": "https://drive.google.com/open?id=1w4wQIeb1ub89pdmMFj0bd4281PGPHYW9",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Inclusión, Salud y Medicina, Tecnología",
+    "Integrantes": "Julieta L., Julia N., Luka S., Luciano S.,",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 90,
+    "Nombre": "stay-up",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistema de detección de microsueños para la conducción.",
+    "Descripcion": "Este proyecto surge en base de la problemática que tienen los conductores que tienden a tener microsueños, los cuales son una de las principales causas de choques en las calles y rutas. Proponemos desarrollar un sistema de cámaras que puedan detectar esta situación y alertar al conductor.",
+    "field6": "https://drive.google.com/open?id=1OkHdkEAx1k_gYXDcAEgNBP6OxDpHSGNY",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Inteligencia Artificial, Salud y Medicina, Tecnología, Viajes y local",
+    "Integrantes": "Uriel B., Thiago D. F., Santiago K.,",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 91,
+    "Nombre": "scan2live",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistemas de detección de gases respiratorios",
+    "Descripcion": "Nuestro proyecto es un dispositivo portátil, no invasivo de bajo costo que permita evaluar el riesgo respiratorio en pacientes tabaquistas mediante el análisis de gases exhalados y variables de exposición acumulada.",
+    "field6": "https://drive.google.com/open?id=14GNg99n6He9_O_V5sqk2fjbubbqSG0fs",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Tecnología",
+    "Integrantes": "Bautista B., Manuel L., Alexander L. F.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 92,
+    "Nombre": "Gestion de stock para insumos de mantenimiento",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Gestion de stock para insumos de mantenimiento",
+    "Descripcion": "Se propone realizar un sistema que pueda detectar mediante sensores la falta de materiales sanitarios en los baños con el fin de eficientizar las tareas de mantenimiento y abastecimiento de los mismos.",
+    "field6": "https://drive.google.com/open?id=1up5qTbc1OqE70hW_YWwu6Hs1Jf9PCauF",
+    "Impacto": "Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Tecnología",
+    "Integrantes": "Joaquin G., Manual P., Manuel Y.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 93,
+    "Nombre": "Tecno Arco",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Arco de futbol inteligente",
+    "Descripcion": "En el fútbol amateur y en los entrenamientos, el uso de tecnología permite obtener datos objetivos para analizar el rendimiento. Medir la velocidad de un remate, registrar goles y conocer la ubicación del disparo aporta información útil para mejorar el juego.Este proyecto propone desarrollar un arco de fútbol tecnológico capaz de detectar automáticamente los goles, medir la velocidad de la pelota y determinar con precisión en qué zona del arco ingresó, mediante un sistema de sensores organizados en forma de grilla.",
+    "field6": "https://drive.google.com/open?id=1PHPjB93jWsKi1pCgGdKgM8dfIFFUOVV0",
+    "Impacto": "Cultural, Social, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Deportes, Entretenimiento, Eventos, Tecnología",
+    "Integrantes": "Valentin A., Lautaro A., Facundo F., Alan S.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 94,
+    "Nombre": "PACE",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistema de detección de convulsiones mediante la medición de signos vitales",
+    "Descripcion": "En la sociedad actual es notable la falta de capacitación para saber actuar ante situaciones en las que alguien convulsiona, poniendo en riesgo no solo a la persona afectada, sino que al entorno. Frente a esto presentamos un prototipo de pulsera inteligente, que mediante lectura de pulsaciones y diversos signos de quien la porte sea capaz de advertir una posible convulsión y en caso de que esta última se presente pueda guiar (mediante una aplicación) a quienes rodean al afectado (para ayudarlo) y comunicar rápidamente con números de emergencia, compartiendo la ubicación e informando la situación",
+    "field6": "https://drive.google.com/open?id=1I3F1i2Tgs5phOI6Qzk5H2YUHtv7y7Bwm",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Tecnología",
+    "Integrantes": "Naiara D., Sol F., Benjamin F.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 95,
+    "Nombre": "Sistema de rastreo para personas mayores",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistema de rastreo para personas mayores",
+    "Descripcion": "Nuestro proyecto busca ofrecer un sistema de ayuda en caso de que una persona se pierda mientras está en la vía pública, dirigido a instituciones como geriátricos alternativas donde necesitan un seguimiento más específico. Para evitar esto, se presenta una operación de rastreo que identifica movimientos fuera de lo normal en lo que respecta al usuario.",
+    "field6": "https://drive.google.com/open?id=1Zt6T0JqUG6A3h_s3p0JsQCxW-Kzk2jnu",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Tecnología",
+    "Integrantes": "Natalie M., Sol B., Julia L., Sol C., Lara N.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 96,
+    "Nombre": "Domotica para sordomudos",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "sistema de domótica inclusivo que permita controlar dispositivos del hogar mediante gestos",
+    "Descripcion": "En la actualidad, los sistemas de domótica han avanzado significativamente, permitiendo automatizar tareas del hogar mediante tecnologías inteligentes como asistentes. Sin embargo, la mayoría de estos sistemas, y los más usados, están diseñados principalmente para funcionar a través de comandos de voz, lo que genera una importante barrera de accesibilidad para las personas mudas. Las personas mudas no pueden interactuar con estos sistemas mediante el habla, lo que los deja excluidos de muchas de sus ventajas. Esta dependencia de la voz limita su deseo de control dentro del hogar, ya que acciones simples como encender una luz, apagar un televisor o controlar otros dispositivos requieren el uso de controles físicos accionados si o si por una persona física. Este anteproyecto propone el desarrollo de un sistema de domótica inclusivo que permita controlar dispositivos del hogar mediante gestos o lenguaje de señas, eliminando la necesidad de utilizar la voz como medio de interacción.",
+    "field6": "https://drive.google.com/open?id=1Rflbs79hGBedkmb5N6Evvy1419pouTlh",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Tecnología",
+    "Integrantes": "Maximo P. R., Juan Bautista P., Santiago P., Leon B., Tobias C.,",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 97,
+    "Nombre": "Olfatus Pretrolium",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistema de detección de combustible para expendedores en estaciones de servicio",
+    "Descripcion": "\nNuestro proyecto consiste en un sistema de reconocimiento que pueda distinguir entre distintos tipos de gasolina sólo poniéndolo en la boquilla del tanque de un auto. De esta manera, se avisa si el combustible que está por ser cargado es correcto o no, evitando así errores en la carga.",
+    "field6": "https://drive.google.com/open?id=1NkJ4hS4-j1gjd3fWjXLzqcXifi613Ct0",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Energías renovables, Tecnología",
+    "Integrantes": "Constantino G., Santino L.,  Maximiliano H., Ivan M.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id":  '98.jpg"',
+    "Nombre": "DiabeAlert",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Plantilla inteligente para detección temprana de riesgo de pie diabético",
+    "Descripcion": "El pie diabético es una de las complicaciones más graves de la diabetes y\nuna de las principales causas de amputaciones evitables en el mundo. Esta\ncondición se produce principalmente por la combinación de neuropatía\ndiabética y problemas circulatorios que afectan la sensibilidad y la\ncicatrización de los tejidos en los pies.\nNuestro proyecto buscará el desarrollo de un prototipo capaz de detectar\ncondiciones de riesgo en tiempo real mediante sensores de presión y\ntemperatura. El objetivo es alertar al usuario permitiendo una intervención\nantes de que sea tarde\n",
+    "field6": "https://drive.google.com/open?id=1zak5SdtxJuUOHtj9OYKJdvUkRN9lp8Im",
+    "Impacto": "Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Tecnología",
+    "Integrantes": "Bruno P., Juan E., Juan S., Facundo B.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '99.JPG"',
+    "Nombre": "CuidANDO",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Es un dispositivo de asistencia para adultos mayores, contiene un acelerómetro para detectar caídas, una luz de emergencia y un botón de ayuda.",
+    "Descripcion": "La idea es hacer un dispositivo con muchas tecnologías para la asistencia de las personas mayores, que se llevaría encima, probablemente en la cintura. Tales como un sensor para notificar en caso que tenga una caída. Diversos botones para contactar con los contactos de emergencia, o para notificarles diversas emergencias como desorientaciones o incidentes  del hogar que no puedan resolver por su cuenta.",
+    "field6": "https://drive.google.com/open?id=1TJiIiJwdOJE4laWOdL7OLIMNRcNS12jK",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Comunicaciones, Salud y Medicina",
+    "Integrantes": "Matias R., Tiziano C., Joel L., Tomas C., Avner Y.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '100.JPG" ',
+    "Nombre": "Techeck",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Es un dispositivo y aplicación para monitorear y corregir la técnica de los ejercicios.",
+    "Descripcion": "Techeck es un sistema integral diseñado para ayudar a los preparadores físicos a monitorear y corregir la técnica de los ejercicios de sus alumnos en el gimnasio, con el objetivo de reducir el riesgo de lesiones. El proyecto consiste en un conjunto de módulos portátiles (uno principal y otros auxiliares) equipados con sensores de movimiento, como acelerómetros y giroscopios, que se colocan en distintas partes del cuerpo del usuario para analizar su postura y ejecución. Estos dispositivos se comunican entre sí para procesar la información y la envían vía Bluetooth a una aplicación móvil. A través de esta app, los entrenadores pueden cargar rutinas personalizadas, mientras que el usuario recibe retroalimentación en tiempo real sobre sus errores o aciertos mediante indicadores visuales LED y métricas detalladas en su teléfono.",
+    "field6": "https://drive.google.com/open?id=1NcuJWww3uleEGyL2JUyX2FQnnEYPBMsb",
+    "Impacto": "Cultural, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Belleza y cuidado personal, Salud y Medicina",
+    "Integrantes": "Axel C., Ramiro T., Alejandro S., Agustín S.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 101,
+    "Nombre": "ActiVelo",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Sistema económico de módulos LED y aplicación para entrenar el tiempo de reacción.",
+    "Descripcion": "Consiste en un sistema económico de unidades independientes y conectadas entre sí, inspirado en los \"LED Trainers\", con el objetivo de entrenar y mejorar la capacidad de acción y reacción de forma accesible para deportistas, conductores y adultos mayores. Los módulos, que tienen un tamaño similar al de un cono tortuga, incorporan un anillo de luces LED y sensores de movimiento que se vinculan a una aplicación móvil para coordinar ejercicios basados en colores o en el tacto. El diseño permite usarlos tanto en el suelo como adheridos a la pared, e incluye el soporte de una cámara y la app para registrar los tiempos del usuario y monitorear su evolución de manera detallada.",
+    "field6": "https://drive.google.com/open?id=19TcL-ODmZAznWy5zN1NmIkPI_XL9wAKf",
+    "Impacto": "Económico, Tecnológico",
+    "ODS": "Educación de calidad",
+    "SuperTags": "Autos y vehículos, Deportes",
+    "Integrantes": "Tiago B., Julian G., Benjamin Y., Lucas S.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 102,
+    "Nombre": "TÁNDEM",
+    "Especialidad": "Informática",
+    "Slogan": "App web de asistencia a pertenecientes al TEA en las tareas diarias, incluye acompañamiento parental",
+    "Descripcion": "Tándem es una plataforma de apoyo para personas con discapacidades cognitivas que combina herramientas lúdicas y de organización para fomentar su autonomía. Incluye actividades interactivas para aprender tareas cotidianas, como preparar la mochila para la escuela o tomar el colectivo, además de un calendario y rutinas para organizar el día a día. También cuenta con un espacio para profesionales, quienes pueden registrar resultados y realizar un seguimiento del progreso de cada usuario.",
+    "field6": "https://drive.google.com/open?id=1GkJFL5E9GgU2uUG18z16Xio9wMg45Ihf",
+    "Impacto": "Social",
+    "ODS": "Educación de calidad",
+    "SuperTags": "Educación, Inclusión, Paternidad y maternidad, Tecnología",
+    "Integrantes": "Ilán B, Alexia W, Matias B, Mateo M, Milena S",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 103,
+    "Nombre": "Servicio de Incentivo de Reciclaje",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Puesto inteligente y app móvil que premian el reciclaje clasificado por marcas mediante gamificación.",
+    "Descripcion": "Este proyecto propone incentivar el reciclaje mediante un puesto inteligente equipado con un tacho automatizado capaz de identificar y clasificar botellas y latas según la empresa o marca a la que pertenecen. A través de una colaboración con distintas empresas, los usuarios podrán utilizar una aplicación móvil conectada al sistema para acumular puntos cada vez que reciclen correctamente sus residuos. La aplicación incorporará recompensas, logros, desafíos y leaderboards para fomentar la participación constante y generar una experiencia más interactiva y competitiva. De esta manera, el proyecto busca no solo aumentar la cantidad de materiales reciclados, sino también crear hábitos sustentables mediante incentivos tecnológicos y beneficios reales para los usuarios y las empresas participantes.",
+    "field6": "https://drive.google.com/open?id=1R9XGheq9elR7dAPQchPYsloI75whuuf_",
+    "Impacto": "Ambiental, Cultural",
+    "ODS": "Ciudades y comunidades sostenibles",
+    "SuperTags": "Inteligencia Artificial, Sustentabilidad",
+    "Integrantes": "Thiago D., Thomas D., Tomas G., Kenai J.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '104.PNG"' ,
+    "Nombre": "AdapTV",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Control remoto intuitivo y accesible para adultos mayores y personas con movilidad o comprensión reducida.",
+    "Descripcion": "Consiste en desarrollar un sistema para que tanto adultos mayores como personas con movilidad reducida o con condiciones que les dificulten el entendimiento del entorno puedan utilizar los televisores y otros dispositivos a control remoto infrarrojo de forma intuitiva y efectiva.",
+    "field6": "https://drive.google.com/open?id=10khWpQTujBklg7izp2nPBM3QwOpk9tHi",
+    "Impacto": "Social",
+    "ODS": "Reducción de las desigualdades",
+    "SuperTags": "Inclusión",
+    "Integrantes": "Marco M., Ramiro P., Tomas P., Martin Z.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 105,
+    "Nombre": "QoLab",
+    "Especialidad": "Mecatrónica",
+    "Slogan": "Un detector de cortes de energía, los cuales se comunican entre sí y envían información por fuera del edificio, avisando al usuario por un mensaje de texto si se cortó la energía.",
+    "Descripcion": "Este proyecto consiste en un sistema de monitoreo modular y de bajo costo compuesto por múltiples dispositivos conectados a la red eléctrica que se comunican remotamente con los teléfonos móviles del usuario. El sistema permite añadir conexiones cableadas para sumar sensores adicionales en cada zona y gestiona una base de datos centralizada que registra de forma automatizada el stock, los cortes de luz semanales y el historial de toda la red.",
+    "field6": "https://drive.google.com/open?id=1hQKu1n8lV1CWcewW6MS1fkpEXwONu146",
+    "Impacto": "Cultural, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Laboratorio",
+    "Integrantes": "Sol M., Ayelén L., Santiago F., Paulina G.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 106,
+    "Nombre": "Sensory House",
+    "Especialidad": "Construcciones",
+    "Slogan": "Brindamos la posibilidad de experimentar ciertas experiencias a chicos con autismo con incapacidad de hacerlo",
+    "Descripcion": "En Sensory House buscamos darle la oportunidad a chicos con autismo de poder vivenciar experiencias que por si solos no pueden mediante módulos y espacios sensoriales",
+    "field6": "https://drive.google.com/open?id=1UUc1IxoSucz6ZgHqaOOeo7wBEYQbtsXB",
+    "Impacto": "Cultural, Social",
+    "ODS": "Reducción de las desigualdades",
+    "SuperTags": "Educación, Inclusión",
+    "Integrantes": "Santiago W, Sofia K, Shira T y Manuel S",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 107,
+    "Nombre": "Velity",
+    "Especialidad": "Informática",
+    "Slogan": "Una app para centralizar todos los datos e informacion medica del usuario",
+    "Descripcion": "Velity es una aplicación móvil de gestión de salud diseñada para centralizar la información médica de los pacientes en un entorno seguro, accesible e intuitivo. La plataforma permite almacenar y compartir el historial clínico con profesionales mediante un sistema de acceso temporal, gestionar medicamentos, turnos y recordatorios, además de ofrecer herramientas como mapas de hospitales y farmacias cercanas. Su objetivo es facilitar el acceso a la salud, mejorar la comunicación entre pacientes y médicos y brindar una solución digital especialmente pensada para quienes no cuentan con obra social o prepaga, permitiendo que su información médica esté siempre disponible cuando la necesiten.",
+    "field6": "https://drive.google.com/open?id=1ZL1q1WHW2h4ywZgabMJfoET6VRWZyp7V",
+    "Impacto": "Económico, Social, Tecnológico",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño, Comunicaciones, Inteligencia Artificial, Salud y Medicina, Tecnología",
+    "Integrantes": "Augusto P, Martin G, Felipe P, Joaquin S.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 108,
+    "Nombre": "Bikely",
+    "Especialidad": "Construcciones",
+    "Slogan": "El futuro de los bicicleteros inteligentes",
+    "Descripcion": "Bikely es un proyecto que busca mejorar la movilidad en las ciudades creando estaciones de estacionamiento inteligentes y seguras para bicicletas. El sistema combina tecnología y diseño para resolver el problema del bajo uso de bicicletas y la inseguridad al estacionarlas.",
+    "field6": "https://drive.google.com/open?id=1yXeK-XWHI0AIlA-R4ktWSHF4Ge_8SeAD",
+    "Impacto": "Ambiental, Cultural, Social, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Arte y diseño, Autos y vehículos, Energías renovables, Sustentabilidad, Tecnología, Viajes y local",
+    "Integrantes": "Sol V, Ezequiel C, Sharon B y Dante Z",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 109,
+    "Nombre": "FURNIFY",
+    "Especialidad": "Construcciones",
+    "Slogan": "App de compra venta y diseño sustentable y de calidad de muebles nuevos y usados, con IA.",
+    "Descripcion": "Una app que integra compra, venta y diseño de muebles para crear espacios funcionales y estéticos. La compraventa puede ser de nuevos y/o usados, y el diseño es mediante nuestra reserva de materiales reciclados. Promovemos la reutilización sustentable. Además, incluímos un asistente con IA para diseñar según espacio, estilo y presupuesto.",
+    "field6": "https://drive.google.com/open?id=19YcgKX4qFAi8gp8qLPS3Fox9W9n6LQkt",
+    "Impacto": "Ambiental, Económico, Social, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Arte y diseño, Casa y hogar, Compras, Inteligencia Artificial, Sustentabilidad, Tecnología",
+    "Integrantes": "ANTONELLA A, MILENA L, VICTORIA B, AGUSTINA DF",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 110,
+    "Nombre": "Antiapiox",
+    "Especialidad": "Química",
+    "Slogan": "Evaluación del potencial antioxidante de Apium Graveolens en modelo de bacterias E. Coli.",
+    "Descripcion": "Teniendo en cuenta que numerosas enfermedades crónicas no transmisibles son causadas por el estrés oxidativo, orientamos nuestro proyecto a encontrar un compuesto natural que pudiera brindar protección a las células. Queriendo comprobar el mito del jugo de apio “milagroso”, encontramos que Apium graveolens posee potencial antioxidante y buscamos comprobar esta propiedad en un modelo de bacterias E. coli.\nSe obtuvieron extractos de hojas y tallos de apio mediante procesos de secado en estufa, molienda, maceración y centrifugación. La cuantificación de flavonoides se llevó a cabo mediante el método de Folin-Ciocalteu, realizando una curva de calibración con ácido tánico como estándar utilizando el espectrofotómetro, lo que permitió determinar concentraciones y establecer que las hojas presentan mayor contenido de flavonoides que los tallos.\nPara evaluar el efecto antioxidante, se diseñaron bioensayos en los que cultivos bacterianos fueron expuestos a radiación ultravioleta (UV) en presencia y ausencia de distintas concentraciones de extracto de apio por diferentes plazos de tiempo. Se consideró como indicador indirecto del estrés oxidativo la actividad enzimática de la catalasa, estimada a partir de la disminución de la concentración de peróxido de hidrógeno medida por espectrofotometría. Paralelamente, se analizó el crecimiento bacteriano de colonias con la hipótesis de que aquellas con menor protección ante la luz UV, podrían sufrir alteraciones en su metabolismo, manifestándose como una menor tasa de división celular.\nEn base a los resultados cuantitativos y cualitativos obtenidos, podemos inferir que el apio posee propiedades antioxidantes naturales, mayormente en sus hojas,  que podrían servir para la prevención y disminución de los efectos dañinos del estrés oxidativo en la salud.",
+    "field6": "https://drive.google.com/open?id=1eg3dv_79jthq_uceVaSAlWQQZagEx85l",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Catalina B, Fiona S y Antonella V",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 111,
+    "Nombre": "AlbaActiva",
+    "Especialidad": "Química",
+    "Slogan": "Evaluación de diferentes propiedades biológicas/químicas del extracto de albahaca.",
+    "Descripcion": "Actividad antioxidante, antimicrobiana y cicatrizante de un extracto de Ocimum basilicum: evaluación en frutas, cultivos microbianos y lombrices.\nEl trabajo realizado tuvo como objetivo evaluar tanto las propiedades antimicrobianas y cicatrizantes de un extracto hidroalcohólico de albahaca (Ocimum basilicum), a partir de la presencia de compuestos bioactivos como el eugenol y el linalool, como también su propiedad antioxidante, vinculada a su contenido rico en ácido rosmarínico. Para ello, se preparó el extracto mediante maceración en etanol al 70%, seguida de filtración y concentración. Su composición fue analizada de forma preliminar mediante cromatografía en capa fina (TLC), evidenciando su presencia.\nLa actividad antimicrobiana se evaluó mediante cultivos en agar a partir de microorganismos presentes en frutas (manzana y palta), aplicando el extracto sobre discos de papel filtro. Se observó un efecto limitado, sin inhibición completa del crecimiento microbiano, lo que sugiere una posible acción bacteriostática dependiente de las condiciones experimentales.\nLa propiedad antioxidante se analizó en muestras de manzana (Golden Delicious) y palta (Persea americana) bajo distintas condiciones. A pesar de que mediante la reacción química de yodo se demostró que el extracto posee poder reductor, en ambos casos, el extracto aceleró el pardeamiento, evidenciando un comportamiento pro-oxidante. Este efecto podría explicarse por la alta concentración de compuestos fenólicos, que en determinadas condiciones pueden favorecer reacciones de oxidación en lugar de inhibirlas. \nPor último, la actividad cicatrizante se evaluó en lombrices californianas (Eisenia foetida) mediante la comparación entre grupos control y tratados. Si bien se observaron indicios de una mejor integración del tejido en los organismos tratados, las limitaciones metodológicas impidieron obtener resultados concluyentes.\nEn síntesis, el extracto de albahaca no mostró una efectividad consistente en las propiedades evaluadas. Los resultados sugieren que su actividad depende de variables como la concentración, el método de extracción y el sistema biológico analizado. Este estudio aporta evidencia preliminar y destaca la necesidad de optimizar las condiciones experimentales para futuras investigaciones.",
+    "field6": "https://drive.google.com/open?id=1TmKZ1xaWgTk81XApjLrMld59IbijyFig",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Eliana C, Laura F y Pilar V",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 112,
+    "Nombre": "Lumivita A + C",
+    "Especialidad": "Química",
+    "Slogan": "Extracción de la vitamina A y C para la conformación de una crema hidratante.",
+    "Descripcion": "Extracción de la vitamina A y C para la conformación de una crema hidratante. \n\nCon el objetivo de extraer Vitamina A y C de la zanahoria y la naranja respectivamente para producir una crema hidratante aprovechando sus propiedades antioxidantes, generamos dos soluciones extractivas. \nPara la primera solución utilizamos zanahoria rallada, agua destilada y etanol, mientras que para la segunda utilizamos naranja y agua destilada. La zanahoria posee beta-caroteno el cual es el precursor de la vitamina A, la cual contiene propiedades antioxidantes, rejuvenecedoras, regenerativas y favorece la producción de colágeno.\nEn cambio la naranja posee vitamina C, la cual es antioxidante al igual que la vitamina A, es clarificante y protectora, además de otorgar luminosidad cutánea.\nDejamos macerar ambas extracciones en frascos oscuros y con aluminio para evitar la degradación por rayos UV y luego verificamos la presencia de las vitaminas a partir de reacciones redox. \nPor último, producimos una crema base con Vaselina, glicerina, cera autoemulsionable no iónica y agua destilada a la cual le colocamos los extractos. A esta crema le medimos el pH antes y después de la colocación de las soluciones como forma de verificación, asegurando que el pH se mantenga dentro de un rango compatible con la piel para no provocar irritación ni daño cutáneo.\nCon respecto a los resultados, se pueden destacar tres. Para empezar obtuvimos efectivamente extractos con vitamina A y C a partir de los elementos electos. A su vez, pudimos terminar con una crema utilizable en la piel en la cual pudimos incorporar las vitaminas sin afectar al pH requerido.\nComo conclusión, a partir de los extractos obtenidos de la zanahoria y la naranja, confirmamos la presencia de las vitaminas A y C. Con estos componentes, desarrollamos una crema hidratante con potencial efecto antioxidante y humectante. Quedaría por confirmar que las concentraciones de las vitaminas sean adecuadas para conseguir el efecto esperado en la piel.",
+    "field6": "https://drive.google.com/open?id=11Fi-nhYg1iNr1KM4AUr55yqW89y-h8-c",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Shirel K, Victoria K y Kiara S",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 113,
+    "Nombre": "Recicatrol",
+    "Especialidad": "Química",
+    "Slogan": "El poder cicatrizante del resveratrol",
+    "Descripcion": "La industria vitivinícola genera una enorme cantidad de residuos orgánicos que podrían ser de mucha utilidad para las industrias químicas, farmacéuticas, cosméticas y alimentarias. Uno de los mayores residuos es la cáscara de uva, la cual es rica en compuestos bioactivos como el pterostilbeno, los flavonoides y polifenoles como el resveratrol. Este último, es conocido por sus propiedades antioxidantes, y  en los últimos años se lo estudia por sus potenciales efectos antiinflamatorios y cicatrizantes. \nLas lombrices californianas son comúnmente utilizadas como modelo experimental debido a que su estructura dérmica tiene similitudes con la estructura de la humana. Otra ventaja que presentan es que son fáciles de criar y mantener en las condiciones adecuadas.\nPor lo tanto, el objetivo de este trabajo fue evaluar las capacidades antiinflamatorias y cicatrizantes del resveratrol extraído de cáscaras de uvas negras, a partir de un protocolo de lesión y tratamiento de las capas superiores de la dermis de las lombrices.\nA partir de cáscaras de uva se realizó una extracción alcohólica para obtener el resveratrol presente. Posteriormente, se evaporó el solvente hasta obtener una solución final con una concentración 0,05 g/ml de resveratrol (extracto de uva). Para poner a punto la efectividad del resveratrol extraído se diseñó una serie de tratamientos: lombrices sin extracto, lombrices tratadas con extracto de uva y lombrices tratadas con extracto de farmacia. Se realizaron tres ensayos donde se cortaron las capas superiores de la piel de las lombrices y se aplicó cada tratamiento. Cómo resultado, se obtuvo que el extracto de uva tiene efectos similares al extracto de farmacia.\nEn conclusión, el extracto obtenido de resveratrol podría tener un efecto cicatrizante en heridas superficiales. Sin embargo, más estudios son necesarios para confirmar estos efectos en el modelo experimental de lombriz.",
+    "field6": "https://drive.google.com/open?id=1xwf7H0UtrHbAtYCkb_mV12QMd2aQ0PuG",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Gael J, Inés M.D y Naomi R",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 114,
+    "Nombre": "Filmter",
+    "Especialidad": "Química",
+    "Slogan": "Adsorción de microplásticos por biofilms como potencial remediación ambiental",
+    "Descripcion": "Biofilm para la biorremediación de recursos hídricos contaminados por microplásticos\n\nSe propone una estrategia de biorremediación para aguas contaminadas por microplásticos (partículas plásticas <5 mm) basada en biofilms bacterianos. Los microplásticos están ampliamente distribuidos en ambientes acuáticos y terrestres. Aunque su estudio es relativamente reciente, se sabe que pueden persistir durante largos periodos y actuar como vectores de contaminantes químicos, con posibles impactos en la salud y los ecosistemas. Su marcada hidrofobicidad facilita la colonización por microorganismos y la formación de biofilms sobre sus superficies. \nLos biofilms son comunidades microbianas inmersas en una matriz de exopolisacáridos que tiene la capacidad de adsorber microplásticos. El proyecto incluyó la detección y caracterización de microplásticos en aguas urbanas, el aislamiento y cultivo de inóculos naturales para formar biofilms, y ensayos de adsorción.\nEn base a esto, evaluamos si biofilms crecidos en condiciones de laboratorio a partir de muestras de agua y sustrato del Parque Centenario, son capaces de adsorber significativamente los microplásticos presentes en el ecosistema. La presencia y el desarrollo del biofilm se verificaron mediante tinción con cristal violeta y observación microscópica.\nPara los ensayos de adsorción, expusimos cuatro placas con biofilm y cuatro placas control sin biofilm a una solución que contenía microplásticos. Tras un protocolo de lavados, examinamos las placas al microscopio y cuantificamos la cantidad de partículas adheridas mediante un software de análisis de imágenes (Image-J). \nLos resultados mostraron un incremento de 3,8 en la adsorción de microplásticos en las placas con biofilm, respecto a los controles, en concordancia con referencias previas. Esta evidencia sugiere que el aprovechamiento de biofilms podría ser una herramienta viable para la remediación de microplásticos en sistemas acuáticos, aunque se requieren estudios adicionales sobre escalabilidad y efectos ecológicos, junto con el mejoramiento de la metodología de cuantificación de microplásticos. Además, se deben evaluar riesgos asociados y propuestas de implementación práctica futura.",
+    "field6": "https://drive.google.com/open?id=1g0jehw2J5g2zAs1tRnYk17x74YNDaycq",
+    "Impacto": "Ambiental, Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Sol S, Malena T y Emma W",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 115,
+    "Nombre": "Fungo Cebra",
+    "Especialidad": "Química",
+    "Slogan": "Efecto tranquilizante del hongo Melena de león sobre el comportamiento de peces cebra",
+    "Descripcion": "En los últimos años, el hongo de la especie Hericium erinaceus, conocida como melena de león, adquirió una notable popularidad como complemento natural para acompañar tratamientos médicos y como suplemento alimentario, distribuido ampliamente en el mercado como producto de venta libre. Esta popularidad se debe a la asociación de su consumo con beneficios sobre la memoria, la concentración y el estado de ánimo, entre otros. Estos efectos son atribuidos a la presencia de compuestos como las hericenonas y las erinacinas, que actuarían modulando el sistema nervioso. Sin embargo, la evidencia de ello, continúa siendo escasa. \nEn estudios previos, se ha utilizado como modelo para estudiar los efectos del extracto del hongo melena de león, ejemplares de Danio rerio (pez cebra), debido a la similitud en la organización y funcionamiento de su sistema nervioso con el de los seres humanos. \nEl objetivo de este trabajo fue evaluar los posibles efectos tranquilizantes del extracto de melena de león en un modelo experimental de pez cebra. Para cumplir con este objetivo, se puso a punto la obtención de extracto del hongo melena de león y se diseñó un protocolo de tratamiento para estudiar sus efectos sobre el comportamiento de los peces, sumado a descartar un efecto adverso o análogo del solvente de extracción.\nSe realizaron observaciones comparativas del comportamiento, analizando variables como el tiempo de respuesta frente al alimento y el nivel de actividad general tras la exposición al extracto, con el fin de identificar posibles efectos sedantes.\nEn base a los resultados obtenidos, tanto en lo cualitativo como en los promedios de tiempo de alimentación, podemos inferir que el extracto de hongo melena de león tiene un efecto tranquilizante sobre los peces cebra. Esto genera una evidencia más sólida sobre los posibles efectos en humanos.",
+    "field6": "https://drive.google.com/open?id=1ON1v5waeAFhIqwrhMAstkjk6afvcpLKc",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Alexia B, Mía B y Noa B",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 116,
+    "Nombre": "Glucocinna",
+    "Especialidad": "Química",
+    "Slogan": "¿Puede la canela regular los niveles de glucosa en C. Elegans?",
+    "Descripcion": "\nEl aumento global de trastornos metabólicos como la diabetes incentivaron la búsqueda de alternativas naturales para el control glucémico. Investigaciones previas comprobaron que la canela posee actividad potenciadora de la insulina y puede reducir productos finales de glicación avanzada. Asimismo, se observó en modelos murinos que el polvo de canela regula la gluconeogénesis hepática y mejora la síntesis de glucógeno. \n\nEl objetivo de este proyecto fue evaluar si la canela tiene un efecto reductor de glucosa en el nemátodo Caenorhabditis elegans, un modelo biológico eficaz debido a su facilidad de manipulación, ciclo de vida corto y metabolismo comparable al de los humanos.\n\nPara el desarrollo experimental, se preparó agar nutritivo autoclavado suplementado con glucosa a una concentración final de 0,06% m/v. Se emplearon bacterias Escherichia coli OP50 como alimentación. Se establecieron tres condiciones: un grupo basal (sin glucosa), un grupo control (con glucosa) y un grupo experimental que recibió 500 µl por placa de una solución de canela (1g/10ml), previamente purificada y esterilizada mediante jeringas de filtración. Los organismos se cultivaron durante 4 días, asegurando la absorción metabólica del compuesto. \n\nPosteriormente, la biomasa se recolectó mediante lavados y centrifugación. La lisis celular se indujo mediante ciclos de congelación y descongelación para liberar el contenido intracelular y cuantificarlo con un glucómetro. Los resultados mostraron que el grupo basal resultó en una lectura de LOW (menor a 10 mg/dL), el grupo control alcanzó 25 mg/dL, mientras que el grupo tratado con canela descendió a 13 mg/dL.\n\nEn conclusión, la reducción en la glucosa interna valida el potencial de la canela en este modelo. Este estudio apoya y verifica los hallazgos preexistentes en la ciencia, consolidando la evidencia sobre la eficacia del compuesto en la regulación de la glucemia.",
+    "field6": "https://drive.google.com/open?id=1ysBrkZB_YGnwFz0dFZEtUre7YZ5Y2nRp",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Valentina L, Lucía M y Sofía M",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 117,
+    "Nombre": "Canégano",
+    "Especialidad": "Química",
+    "Slogan": "Extractos de canela y orégano como conservantes para panificados.",
+    "Descripcion": "La presente investigación estudia el potencial poder conservante de extractos naturales obtenidos de la canela (Cinnamomum spp.) y orégano (Origanum spp.), especias que contienen compuestos bioactivos con reconocida actividad antimicrobiana. La canela posee el compuesto “cinamaldehído”, mientras que el orégano posee “carvacrol” y “timol”. Estás moléculas podrían reemplazar a los conservantes sintéticos utilizados en la industria alimentaria. \n\nA partir de los extractos de canela y orégano se buscó determinar si poseían propiedades capaces de prolongar la vida útil de panificados mediante la observación de la inhibición del crecimiento microbiano y la preservación de sus características organolépticas.\n\nLa metodología aplicada consistió, en primera instancia, en la extracción de los compuestos mediante destilación por arrastre de vapor. Luego, realizamos una cromatografía en capa delgada (TLC) con el objetivo de corroborar la presencia de carvacrol y timol en el orégano, y de cinamaldehído en la canela. Se evidenció la presencia de compuestos compatibles con cinamaldehído, carvacrol y timol. Por último, realizamos el horneado del pan, donde probamos la efectividad de los extractos. Fue preparado con las extracciones en el amasado y luego horneados. Posteriormente, dejamos que los panes se hongueen para confirmar la actividad antimicrobiana. Para ello corroboramos la cantidad de hongo presente en el pan. \nComo resultado se observó que los panes que contenían extracto de canela y orégano presentaron un menor crecimiento de hongos, en relación con el control, siendo el primero el más efectivo. Estos resultados sugieren un efecto conservante prometedor, especialmente en el caso de la canela.",
+    "field6": "https://drive.google.com/open?id=1dWPI0_box4kqvsGvLBGQ0Y6Fh8zkXu-F",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Uriel B, Elías C y Flor K",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 118,
+    "Nombre": "Aliclor",
+    "Especialidad": "Química",
+    "Slogan": "Actividad antimicrobiana de extractos ricos en ácidos clorogénicos provenientes de residuos de infusiones",
+    "Descripcion": "Comprobación de actividad antimicrobiana de un extracto con ácidos clorogénicos.\nEn la actualidad, un alto porcentaje de los alimentos que producimos se desperdician debido a su incipiente deterioramiento o porque ya no tienen relevancia en la industria alimenticia. Se consume 1,5 kg de café y 6,5 kg de yerba mate por persona al año en Argentina. Con el objetivo de utilizar estos residuos se comprobó la actividad antimicrobiana de los ácidos clorogénicos para su uso como conservante alimenticio. Durante este proceso se obtuvieron tres extractos utilizando diferentes metodologías de extracción y materias primas. En el primer extracto se utilizó borra de café y se obtuvo el extracto mediante una destilación y concentración de una solución acuosa al 1 en 5 de borra de café y agua destilada. Al obtenerse el extracto se probó en diferentes concentraciones utilizando diluciones seriadas al ½ mediante la técnica de antibiograma. En el segundo extracto se utilizó borra de café obtenido mediante la técnica de extracción por ultrasonido, y en el tercer extracto se utilizó yerba mate mediante el mismo procedimiento de extracción. Los tres extractos se probaron en E.coli y en S. aureus obteniendo resultados no congruentes con la hipótesis. Esto se puede deber a la baja concentración de ACG en los extractos, a la ausencia o baja concentración de ACG en estos residuos o a una extracción ineficiente de estos. En conclusión no se evidenció actividad antimicrobiana en los extractos que obtuvimos pero no pudimos comprobar la actividad antimicrobiana de los ácidos clorogénicos.",
+    "field6": "https://drive.google.com/open?id=1dzt3OGwGPKBAco3RYsp7zFlVQxmX-srM",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Santiago H.S, Nahiara P y Lara O",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 119,
+    "Nombre": "Nori Sun",
+    "Especialidad": "Química",
+    "Slogan": "Extracción de aminoácidos de tipo micosporina fotoprotectores a partir de Alga nori.",
+    "Descripcion": "En este proyecto nos propusimos extraer aminoácidos con propiedades fotoprotectoras, específicamente aminoácidos tipo micosporina (MAAs), presentes en el alga Nori, conocidos por su capacidad de absorber radiación UV.\nEl objetivo fue evaluar su potencial uso en fotoprotección dentro del rango UV. Para ello, realizamos una extracción mediante solventes de distinta polaridad (agua y etanol), seguida de ensayos de separación mediante cromatografía. Si bien no se lograron perfiles cromatográficos concluyentes, los resultados sugieren la presencia de compuestos compatibles con MAAs, lo que constituye una validación parcial de la hipótesis.\nPosteriormente, se diseñaron ensayos biológicos utilizando cultivos de E.coli para evaluar el posible efecto fotoprotector de los extractos frente a radiación UV. Se trabajó con distintas diluciones (técnica que se usa para reducir la concentración de bacterias en una muestra líquida) y condiciones de exposición, lo que permitió explorar múltiples variables experimentales. Sin embargo, factores como la inestabilidad del medio de cultivo y posibles limitaciones en la concentración o disponibilidad de los compuestos impidieron obtener resultados concluyentes por lo que tuvimos que realizar esta prueba nuevamente pero con una optimización del medio de cultivo. Tran sacar de la estufa las nuevas placas nos dio los resultados\nComo resultado final de las placas logramos observar una menor cantidad de bacterias en la placa expuesta a UV sin extracto, verificando su capacidad de proteger células ante la radiación UV, es decir, vimos parcialmente el efecto que esperábamos ver en las placas.\nEn conclusión, podríamos mejorar la extracción y aplicación del alga Nori para poder usarlo como potencial protector UV que busque proteger el impacto que podría tener este en la piel humana.",
+    "field6": "https://drive.google.com/open?id=1gsW9ockT1h8mlAxoSrqXyWOhJtvYv6ca",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Salud y Medicina, Sustentabilidad",
+    "Integrantes": "Julieta C, Valentina L, Lucila M y Bruno M",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 120,
+    "Nombre": "Calm Space",
+    "Especialidad": "Construcciones",
+    "Slogan": "Espacio modular que ayuda a estudiantes a regular emociones y volver al aula más concentrados.",
+    "Descripcion": "Calm Space es un espacio modular de regulación emocional diseñado para instituciones educativas. Su objetivo es brindar a los estudiantes un lugar seguro donde puedan hacer una pausa, reducir el estrés y la ansiedad, y recuperar la calma antes de regresar al aula. A través de un ambiente cómodo, privado y acompañado por un adulto capacitado, el proyecto promueve el bienestar emocional, mejora la convivencia escolar y favorece la concentración y el aprendizaje.",
+    "field6": "https://drive.google.com/open?id=1vC6xTj7Iqyx050Cb-tIS7UAfwEVowG8t",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Inclusión, Salud y Medicina",
+    "Integrantes": "Malena M, Sofia E, Abigail L, Florencia J",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 121,
+    "Nombre": "arqvision",
+    "Especialidad": "Construcciones",
+    "Slogan": "Arqvision se trata de un casco que tiene un proyector que sirve para agilizar la construcción y que te diga el paso a paso para construir, con todos los materiales necesarios",
+    "Descripcion": "ArqVision ayuda a entender proyectos arquitectónicos con un casco inteligente que muestra planos en el espacio real, reduciendo errores y mejorando la comunicación. La idea es viable porque la realidad aumentada existe, y nosotros queremos que sea utilizada en la arquitectura y construcción.",
+    "field6": "https://drive.google.com/open?id=1eHTRERXkNoZihxD0FVQXEZG-4Nepmi8q",
+    "Impacto": "Económico, Tecnológico",
+    "ODS": "Industria, innovación e infraestructura",
+    "SuperTags": "Casa y hogar, Inteligencia Artificial, Tecnología, construcciones",
+    "Integrantes": "Juan G, Lucia V, Jazmin T, Dante P",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 122,
+    "Nombre": "ONCOCARE",
+    "Especialidad": "Construcciones",
+    "Slogan": "Prevención, información y acompañamiento contra el cáncer",
+    "Descripcion": "Un proyecto que transforma espacios públicos en centros de\ncapacitación y acompañamiento médico.\n",
+    "field6": "https://drive.google.com/open?id=1LNY6ts_f-h-DkxNrw2_7Mwr3F6xHpcej",
+    "Impacto": "Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Educación, Inclusión, Salud y Medicina, Sustentabilidad,",
+    "Integrantes": "Lola S, Camila M, Mora S y Federica P",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": 123,
+    "Nombre": "Criollitas producciones",
+    "Especialidad": "Producción Artística",
+    "Slogan": "Partimos de la pregunta ¿Cómo afecta el modelo de éxito que nos enseñan de chicos, la forma en que percibimos a quienes no cumplen con ese modelo?",
+    "Descripcion": "Se trata de un cortometraje que es un hibrido entre ficción y documental, en el que tratamos la problemática de los mandatos sociales como condicionantes a la hora de elegir una profesión y también como formadores de prejuicios.",
+    "Impacto": "Cultural, Social",
+    "ODS": "Salud y Bienestar",
+    "SuperTags": "Arte y diseño, Entretenimiento, Música, audio y video",
+    "Integrantes": "Ivan Ch., Micaela K., Olivia L.B., Mia S. Camila V., Florencia M.",
+    "sinergizado": "FALSE"
+  },
+  {
+    "id": '124.png"',
+    "Nombre": "TENO-FUT",
+    "Especialidad": "Construcciones",
+    "Slogan": "Condiciones deportivas igualitarias",
+    "Descripcion": "Nuestra empresa desarrolla modulos 1mx1m sustentables de canchas de futbol replegables incentivando   a que mas y mas clubes se preparen para tener futbol para personas no videntes.",
+    "field6": "https://drive.google.com/open?id=1yCAZhIyVDnEnsrg2KL1AwlOYOx-1rFmZ",
+    "Impacto": "Social",
+    "ODS": "Reducción de las desigualdades",
+    "SuperTags": "Deportes, Inclusión, Sustentabilidad",
+    "Integrantes": "Nicolas C, Italo C, Filippo M y Tomas V",
+    "sinergizado": "FALSE"
+  }
+]
+
+  </script>
+</body>
+
+</html>
