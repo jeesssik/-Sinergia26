@@ -977,26 +977,27 @@
 <body>
   <header>
     <div class="banner-container">
-      <!--<img src="/static/archivos/anim/1663176/2012790/4506.gif" alt="Logo" id="logo-image" />-->
-      <img src="4506.gif" alt="Logo" id="logo-image" />
+      <img src="https://recursos.ort.edu.ar/static/archivos/anim/1663176/2287590/4506.gif" alt="Logo" id="logo-image" />
+     <!-- <img src="4506-1.gif" alt="Logo" id="logo-image" /> -->
     </div>
   </header>
   <nav class="navbar">
     <div class="navbar-buttons">
-      <button id="Sinergizado" class="button-55 btn-sinergizado" onclick="mostrarSin()">
-        Sinergizado
+  
+      <button id="web" class="button-55 btn-web" onclick="mostrarCategoria('Construcciones')">
+        Construcciones
       </button>
-      <button id="web" class="button-55 btn-web" onclick="mostrarCategoria('Web')">
-        Web
+      <button id="servicio" class="button-55 btn-servicios" onclick="mostrarCategoria('Gestión')">
+        Gestión
       </button>
-      <button id="servicio" class="button-55 btn-servicios" onclick="mostrarCategoria('Servicio')">
-        Servicio
+      <button id="bien-tangible" class="button-55 btn-bien-tangible" onclick="mostrarCategoria('Informática')">
+        Informática
       </button>
-      <button id="bien-tangible" class="button-55 btn-bien-tangible" onclick="mostrarCategoria('Bien tangible')">
-        Bien Tangible
+      <button id="App" class="button-55 btn-App" onclick="mostrarCategoria('Producción')">
+         Producción Artística
       </button>
-      <button id="App" class="button-55 btn-App" onclick="mostrarCategoria('App')">
-        App
+      <button id="App" class="button-55 btn-App" onclick="mostrarCategoria('Mecatrónica')">
+        Mecatrónica
       </button>
       <button id="Todos" class="button-55 btn-todos" onclick="mostrarTodos()">
         Todos
@@ -1074,7 +1075,7 @@
       resultadoDiv.innerHTML = "";
 
       var categoriaData = datos.filter(function (item) {
-        return item.Impacto && item.Impacto.includes(categoria);
+        return item.Especialidad && item.Especialidad.includes(categoria);
       });
 
       if (categoriaData.length > 0) {
@@ -1101,7 +1102,7 @@
 
                        <p>${truncateData(item.Integrantes, ',', 2, 'Integrantes')}
                         <b>ODS:</b>  ${item.ODS} <br>
-                         <b>Categoría:</b>  ${item.Categoria}<br>
+                 
                        ${truncateData(item.superTags, ',', 0, 'Tipo de Producción')}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                         </div>
@@ -1112,10 +1113,11 @@
         });
 
         var categoriaIdMap = {
-          "Web": "web",
-          "Servicio": "servicio",
-          "App": "App",
-          "Bien tangible": "bien-tangible"
+          "Construcciones": "Construcciones",
+          "Gestión": "Gestión",
+          "Informática": "Informática",
+          "Producción": "Producción",
+          "Mecatrónica": "Mecatrónica"
         };
         setActiveButton(categoriaIdMap[categoria] || "Todos");
       } else {
@@ -1423,7 +1425,7 @@
                               ${truncateDescription(item.Descripcion, 10, item)}
                             ${truncateData(item.Integrantes, ',', 2, 'Integrantes')}<br>
                              
-                            <b>Categoria:</b> ${item.Categoria}</p>
+                            
                             <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                         </div>
                     </div>
@@ -1471,7 +1473,7 @@
   {
     "id": '1-65',
     "Nombre": "DERVAX",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "DERVAX desarrolla parches vacunatorios indoloros, accesibles y sustentables para transformar la inmunización global.",
     "Descripcion": "Somos DERVAX, un proyecto que fue creado con el objetivo de cambiar la forma en la que las personas viven la vacunación. Nosotros creemos que el acceso a la salud no debería ser difícil ni costoso, y que las personas no deberían tener miedo de vacunarse, por eso desarrollamos un parche vacunatorio con micro agujas que es indoloro, fácil de transportar y no contaminante",
     "field6": "https://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/1-65.png",
@@ -1484,7 +1486,7 @@
   {
     "id": '2-58',
     "Nombre": "LUMO",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Servicio integral de seguridad diseñado para optimizar la respuesta ante situaciones de emergencia en organizaciones.",
     "Descripcion": "LUMO es una solución integral de seguridad que combina una aplicación móvil con dispositivos inteligentes instalados en elementos de emergencia. Su objetivo es facilitar la localización rápida y el acceso a estos recursos mediante geolocalización, señalización lumínica y alertas sonoras, mejorando la capacidad de respuesta ante situaciones críticas. De esta manera, contribuye a reducir riesgos, optimizar la gestión de emergencias y aumentar la seguridad de las personas en organizaciones e instituciones.",
     "field6": "https://recursos.ort.edu.ar/static/archivos/anim/1663176/2412476/2-58.png",
@@ -1508,7 +1510,7 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": '4-14',
+    "id": 'no',
     "Nombre": "CAPSULAB",
     "Especialidad": "Construcciones",
     "Slogan": "Capsulas de co-working sustentables ubicadas en parques, accesibles para todo publico.",
@@ -1521,7 +1523,7 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": '6-6.PNG"',
+    "id": 'no',
     "Nombre": "Full-energized",
     "Especialidad": "Construcciones",
     "Slogan": "Parche solar inteligente que carga dispositivos con energía solar, combinando diseño y sustentabilidad.",
@@ -1536,7 +1538,7 @@
   {
     "id": '5-12',
     "Nombre": "EstacionAr",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Aplicación para encontrar estacionamiento en la via publica y garages privados.",
     "Descripcion": "EstacionAr es una aplicación móvil diseñada para mejorar la movilidad urbana en CABA y el AMBA mediante la localización de espacios de estacionamiento disponibles en tiempo real. La plataforma permite a los conductores visualizar lugares libres en la vía pública, encontrar garages cercanos, ver los precios y disponibilidad, y reservar espacios en estacionamientos privados. EstacionAr busca reducir el tiempo de búsqueda de estacionamiento, disminuir la congestión vehicular, reducir el consumo de combustible y mejorar la experiencia diaria de los conductores.",
     "field6": "https://drive.google.com/open?id=1WYJIa-IxqAjUo2UHeNnk0MPpshoPHWuf",
@@ -1560,9 +1562,9 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": '8-4',
+    "id": '6-6.PNG"',
     "Nombre": "Selv",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Parche antitranspirante reutilizable adherible a la ropa evitando el malestar de la marca de sudor.",
     "Descripcion": "Ofrecemos un parche antitranspirante reutilizable que se adhiere a la ropa. Funcionando como una barrera que evita manchas de sudor en tus prendas, con el objetivo de evitar el malestar que les genera a las personas las marcas de sudor.",
     "field6": "https://drive.google.com/open?id=1vT_C_bVVuaR8mfhpfTt4IptjuAccG_zf",
@@ -1573,7 +1575,7 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": '9-3',
+    "id": '93',
     "Nombre": "CECH",
     "Especialidad": "Construcciones",
     "Slogan": "Bancos inteligentes sustentables que mejoran la comodidad, conectividad y seguridad en espacios públicos urbanos.",
@@ -1705,7 +1707,7 @@
   {
     "id": '19-2',
     "Nombre": "Biznex",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Asesorias comerciales para determinar la factibilidad comercial y posterior acompañamiento de necesitarlo de un emprendimiento",
     "Descripcion": "Biznex es un servicio de asesoramiento estratégico que evalúa la viabilidad de nuevos emprendimientos mediante un Índice de Factibilidad Comercial (IFC). A partir de este análisis, brinda recomendaciones personalizadas y acompañamiento para reducir riesgos, optimizar decisiones y aumentar las probabilidades de éxito de los negocios.",
     "field6": "https://drive.google.com/open?id=1aFvvr-aW4jfKAt4QIJ0UB1oKj39XAcqs",
@@ -1729,9 +1731,9 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": '21-6',
+    "id": '21-6.jpg"',
     "Nombre": "BioDat",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Aplicacion para pacientes, que recopila su historial medico, citas, recetas médicas, sintomas, entro otros.",
     "Descripcion": "BioDat es una aplicación que acompaña al paciente de forma permanente a lo largo de su vida. Este sistema de información sanitaria permite al usuario registrar manualmente el historial médico, antecedentes clínicos o síntomas ante malestares, incluyendo fotografías de zonas externas corporales visibles afectadas, historiales y recetas médicas, entre otros. Esta aplicación no es solo un método organizativo, es prevención y resuelve la dependencia constante de registros en papel que suelen perderse o duplicarse innecesariamente. Asimismo, contará con planes pensados para instituciones como geriátricos, hospitales y equipos deportivos, con distintos packs y precios según las funciones incorporadas.",
     "field6": "https://drive.google.com/open?id=1iz_gYJgc1VIUIwlqfulT_2CHLJHUsQoO",
@@ -1744,7 +1746,7 @@
   {
     "id": '22-1',
     "Nombre": "AgroMeet",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Es un markeplace de alquiler de maquinaria agricola, con diversos servicios",
     "Descripcion": "Es un marketplace el cual conecta a dueños de maquinaria y productores que necesitan la maquinaria. Entonces nosotros intermediamos entre estas partes y conectamos con la oferta de servicios de logistica y seguros.",
     "field6": "https://drive.google.com/open?id=1k4NNicOlsAhzL2KKC45ZuTSCjWzi928j",
@@ -1757,7 +1759,7 @@
   {
     "id": 23,
     "Nombre": "BITOAJ",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Pulsera inteligente que alerta mediante vibraciones a personas con discapacidad auditiva en emergencias.",
     "Descripcion": "BITOAJ es una pulsera inteligente desarrollada para brindar mayor seguridad, autonomía e inclusión a las personas con discapacidad auditiva frente a situaciones de emergencia. El dispositivo funciona de manera autónoma, sin depender de un teléfono celular u otros equipos, ya que recibe alertas oficiales directamente mediante tecnologías de conectividad propias y las transforma en vibraciones inmediatas y perceptibles. De esta manera, permite que los usuarios puedan reaccionar rápidamente ante incendios, terremotos, tsunamis, evacuaciones, conflictos bélicos u otras situaciones de riesgo, sin depender de terceros. Además, incorpora un botón físico de emergencia con dos funciones clave: al presionarlo una vez, envía automáticamente un mensaje junto con la ubicación del usuario a contactos de confianza previamente configurados para informar que se encuentra a salvo o necesita asistencia; al presionarlo dos veces, contacta directamente a los servicios de emergencia para solicitar ayuda inmediata. La propuesta también incluye mallas intercambiables que permiten personalizar el producto, combinando funcionalidad, comodidad y diseño. A través de esta solución, se busca reducir desigualdades, promover la independencia de las personas con discapacidad auditiva y garantizar que, en situaciones críticas, depender de otros no sea una opción para mantenerse seguro.",
     "field6": "https://drive.google.com/open?id=1gDnQSmuT3oEvxRa3dWKWHdUmauraoQ-p",
@@ -1770,7 +1772,7 @@
   {
     "id": '24-1',
     "Nombre": "Kazoku",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "El proyecto consiste en un pastillero inteligente conectado a una aplicación movil con múltiples funciones.",
     "Descripcion": "Nuestro proyecto se trata de un pastillero inteligente conectado a una app, con el objetivo de evitar tanto la omisión como el exceso en la ingesta de pastillas. La aplicación cumple con múltiples funciones, entre las cuales se destacan la organización de las dosis por días y horarios, los recordatorios automáticos y el envío de notificaciones a familiares o cuidadores cuando una toma no es registrada. La idea busca mejorar la autonomía, la seguridad y el seguimiento de los tratamientos médicos en un contexto en el que hay muchas enfermedades y envejecimiento poblacional.",
     "field6": "https://drive.google.com/open?id=1kb2vnd5DqQnob-izGqwltNlIlJYgV87W",
@@ -1783,7 +1785,7 @@
   {
     "id": 25,
     "Nombre": "Atenux FIT",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Conector entre gimnasios, entrenadores, profesionales de la salud y usuarios",
     "Descripcion": "Es una plataforma dividida en una pagina web y una app",
     "field6": "https://drive.google.com/open?id=1iH42I0-jOHA7YCejO4iMl2lUhlAMCb9Y",
@@ -1796,7 +1798,7 @@
   {
     "id": '26-1',
     "Nombre": "CuiDARTE",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Desarrollamos, diseñamos y comercializamos juegos educativos inclusivos que fomentan empatía y aprendizaje significativo.",
     "Descripcion": "CuiDARTE desarrolla juegos educativos e inclusivos dirigidos al público infantil, con el objetivo de generar conciencia sobre distintas condiciones de salud y fomentar la empatía desde edades tempranas. La propuesta combina aprendizaje y entretenimiento mediante experiencias de juego dinámicas que pueden ser utilizadas tanto en el hogar como en ámbitos educativos, aportando valor social y educativo mientras responde a una necesidad poco cubierta en el mercado.",
     "field6": "https://drive.google.com/open?id=1-RXnkGG_ZSsA2f15heiKr81FF7DXu5oL",
@@ -1809,7 +1811,7 @@
   {
     "id": 27,
     "Nombre": "Vitalert",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Parche inteligente para anticipar desmayos y prevenir caídas",
     "Descripcion": "Parche inteligente que anticipa desmayos (síncope). Se coloca en el cuello y de esa manera, monitorea en tiempo real el flujo sanguineo, presión y ritmo cardiaco. Detecta anomalías que se alertan en la app movil que tiene asociada, permitiendo tanto al usuario como a sus familiares actuar a tiempo y evitar accidentes.",
     "field6": "https://drive.google.com/open?id=1n7M4h9NQzDKjDRtcImSNz4D97jkiDMHj",
@@ -1820,9 +1822,9 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": 28,
+    "id": '28.PNG"',
     "Nombre": "SĒNZA Beauty",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "SĒNZA es un maquillaje modular, portátil y personalizable que simplifica la rutina diaria.",
     "Descripcion": "SĒNZA es un emprendimiento de cosmética que busca revolucionar la forma de usar y transportar maquillaje mediante un lápiz modular, portátil y personalizable. El producto permite integrar distintos cosméticos en un único formato práctico, reduciendo espacio, costos y residuos. Pensado especialmente para adolescentes y jóvenes, combina innovación, sustentabilidad y comodidad, ofreciendo una alternativa moderna al maquillaje tradicional.",
     "field6": "https://drive.google.com/open?id=1KhTdJP4VbWaMgbflq7d9fe6Zj72iB0U6",
@@ -1835,7 +1837,7 @@
   {
     "id": 29,
     "Nombre": "SupLife",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "marca de suplementos pensados para jóvenes en formato caramelos masticables",
     "Descripcion": "Suplementos que ayuden a mejorar la energía, concentración, aspecto de la piel, descanso y bienestar, usando ingredientes reales y fáciles de consumir. El producto se presenta en formato caramelos masticables, siendo práctico, accesible en cuanto a su valor de mercado y más fácil de transportar y consumir que los suplementos tradicionales o energizantes. Se comercializan mayormente en paquetes sustentables de 15 unidades para abarcar dos semanas pero también ofrecemos packs mensuales para facilitar la incorporación de los mismos a la rutina diaria.",
     "field6": "https://drive.google.com/open?id=1T-HLr7vIKofkuDzNr40DxBjw2rDCpgU4",
@@ -1846,9 +1848,9 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": '30',
+    "id": '30.PNG"',
     "Nombre": "Signtalk",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Una app que ayuda a comunicarse a personas con discapacidad auditiva.",
     "Descripcion": "SignTalk es una aplicación que facilita la comunicación entre personas con discapacidad auditiva o del habla y el resto de la sociedad, utilizando inteligencia artificial para traducir en tiempo real la lengua de señas a texto o audio, y viceversa.",
     "field6": "https://drive.google.com/open?id=1MuGM3IYbUuRHnPdJYtnFX9nKMGuysF7w",
@@ -1861,7 +1863,7 @@
   {
     "id": 31,
     "Nombre": "YAFFE",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "YAFFE transforma borra de café reciclada en productos de skincare sustentables mediante economía circular.",
     "Descripcion": "YAFFE es un emprendimiento de skincare sustentable que transforma la borra de café reciclada de cafeterías de especialidad en productos de cuidado personal, como exfoliantes, cremas hidratantes y sérums. Su modelo se basa en la economía circular, reduciendo residuos y generando un impacto ambiental positivo. La marca combina bienestar, innovación y sustentabilidad, ofreciendo productos naturales y accesibles para consumidores comprometidos con el cuidado de su piel y del medio ambiente",
     "field6": "https://drive.google.com/open?id=1KEi6t6yVOYxGHz3PDJPmurLjWH2sI9Hb",
@@ -1874,7 +1876,7 @@
   {
     "id": 32,
     "Nombre": "Safe Tire",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "SafeTire utiliza sensores en los neumáticos para detectar fallas y prevenir accidentes viales de forma temprana",
     "Descripcion": "SafeTire es un proyecto que busca mejorar la seguridad de los conductores usando tecnología aplicada a los neumáticos. Consiste en pequeños sensores que se colocan en cada rueda y que controlan constantemente la presión y la temperatura. Toda esa información se envía a una aplicación en el celular, donde el usuario puede ver el estado de sus neumáticos en tiempo real y recibir alertas si hay algún problema. De esta forma, se pueden prevenir accidentes, reducir gastos de mantenimiento y mejorar el rendimiento del vehículo. Nuestro objetivo es ofrecer una solución práctica e innovadora que ayude a las personas a conducir de manera más segura.",
     "field6": "https://drive.google.com/open?id=1YSAN9sYZ2IiXUMdcH93m_IyFzd7SzoA6",
@@ -1887,7 +1889,7 @@
   {
     "id": 33,
     "Nombre": "GOOMY",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Goomy se dedica al desarrollo y comercialización de caramelos (formato gomitas) energéticos, pensados para deportistas y personas activas que buscan mejorar su rendimiento y bienestar de forma práctica y rápida.",
     "Descripcion": "Nuestros caramelos deportivos están formulados con ingredientes naturales que aportan beneficios específicos según la necesidad del usuario: algunos estarán orientados a activar el cuerpo antes del entrenamiento (favoreciendo el calentamiento), otros ayudarán a prevenir calambres / molestias físicas durante la actividad física, y otros estarán enfocados en la recuperación muscular posterior. Además, se priorizará el uso de componentes que contribuyan al cuidado de la salud, evitando excesos de azúcares y aditivos artificiales.",
     "field6": "https://drive.google.com/open?id=1C424lkzg1WZQcPw7SnMHX7DX9EhvSI2t",
@@ -1900,7 +1902,7 @@
   {
     "id": 34,
     "Nombre": "Playworks",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Playworks ofrece kits de actividades lúdicas que reducen pantallas, fomentan creatividad, aprendizaje y socialización.",
     "Descripcion": "Playworks es un emprendimiento dedicado al desarrollo de soluciones lúdicas y educativas que promueven el juego, la creatividad y la interacción social en niños. A través de productos innovadores, actividades organizadas y recursos adaptados a diferentes contextos, busca ofrecer alternativas saludables al uso excesivo de pantallas, transformando momentos cotidianos en oportunidades de aprendizaje, diversión y conexión.",
     "field6": "https://drive.google.com/open?id=1dR4P9Eqc1lNmBKf1PyYZdBzVZ5iJ1blE",
@@ -1911,9 +1913,9 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": 35,
+    "id": 'no',
     "Nombre": "Spot",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Aplicación que conecta conductores con plazas de estacionamiento ociosas en establecimientos comerciales.",
     "Descripcion": "Spot es una aplicación que busca conectar a conductores que necesitan estacionamiento y a oferentes de plazas de parking que están disponibles u ociosas (en determinados horarios). Permite reservar anticipadamente el estacionamiento para prevenir demoras a la hora de aparcar, reduciendo el impacto ambiental y permitiendo una gestión eficiente del tiempo. Podés cumplir el rol de oferente de estacionamiento (si sos un centro comercial, hotel, administrador de edificios de oficinas, de estacionamientos comerciales, gimnasios con parking, etc.) o de conductor y cancelar la reserva de gratuita hasta 6 horas antes de lo pactado.",
     "field6": "https://drive.google.com/file/d/1fGCsReSmrs073IXZcmiUZNmAyVfK0-QQ/view?usp=drive_link",
@@ -1926,7 +1928,7 @@
   {
     "id": 36,
     "Nombre": "Fragmento",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Fragmento busca darle una segunda vida a los materiales de obra fomentando asi la economía circular.",
     "Descripcion": "Recolectamos el material descartado de las obras y los procesamos industrialmente para luego formar productos tales como bancos para plazas publicas, muebles, mesas, macetas, etc. Nuestro modelo de negocio es bidireccional al ser tanto compradores de los residuos (por un precio bajo o nulo) a empresas como a particulares; como vendedores a personas y pequeñas empresas del rubro de la construcción que buscan materiales más económicos, así como consumidores jóvenes y adultos interesados en el diseño de interiores, la sustentabilidad y muebles con identidad única. De esta manera, no solo reducimos el impacto ambiental, sino que también genera valor económico a partir de residuos y amplía el acceso a productos sustentables.",
     "field6": "https://drive.google.com/open?id=1GaHK4zbxStTLyTAWRmad8YYg0_KBELZX",
@@ -2197,7 +2199,7 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": 57,
+    "id": 'no',
     "Nombre": "Bookly",
     "Especialidad": "Informática",
     "Slogan": "Plataforma de compra-venta de libros escolares usados entre alumnos",
@@ -2222,7 +2224,7 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": '59-2',
+    "id": '59-2.jpg"',
     "Nombre": "Ruta Verde",
     "Especialidad": "Informática",
     "Slogan": "Crear una pagina web a una red solidaria de plantas nativas.",
@@ -2354,7 +2356,7 @@
   {
     "id": 69,
     "Nombre": "Track & Charm",
-    "Especialidad": "Gestión Almagro",
+    "Especialidad": "Gestión",
     "Slogan": "Charm que posee un chip rastreador integrado, permitiendo la localización de objetos y personas.",
     "Descripcion": "Nuestro emprendimiento consta de un charm que tiene en su interior un chip rastreador que permite la localización de objetos y personas. Al ser un accesorio, combinamos tecnología, seguridad y moda, adaptándonos al estilo y personalidad de nuestros consumidores.",
     "field6": "https://drive.google.com/open?id=1nG1Y7NWGR6Dz6YJTzE0Vv1FzdNzhSUl2",
@@ -2404,9 +2406,9 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": 73,
+    "id": 'no',
     "Nombre": "Ghoslight productions",
-    "Especialidad": "Producción Artística",
+    "Especialidad": "Producción",
     "Slogan": "Partimos de la pregunta ¿Cómo afecta la idealización de vínculos pasados a la construcción de  nuevos vínculos en el presente?",
     "Descripcion": "Realizaremos una serie de reversiones de temas musicales, que formarán parte de un material audiovisual (videoclip) que narra una historia en la que queremos representar cómo la idealización de vínculos pasados nos estanca y no nos permite avanzar.",
     "Impacto": "Cultural",
@@ -2416,9 +2418,9 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": 74,
+    "id": 'no',
     "Nombre": "Dilema moral",
-    "Especialidad": "Producción Artística",
+    "Especialidad": "Producción",
     "Slogan": "Partimos de la pregunta ¿Importa realmente hacer justicia cuando la verdad perjudica a alguien que querés?",
     "Descripcion": "Se trata de un cortometraje en el cual abordamos las distintas posibles respuestas a nuestra pregunta a través de distintos personajes representan cada uno, una respuesta posible.",
     "Impacto": "Cultural",
@@ -2428,9 +2430,9 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": 75,
+    "id": 'no',
     "Nombre": "Entrepisos producciones",
-    "Especialidad": "Producción Artística",
+    "Especialidad": "Producción",
     "Slogan": "Tomamos como punto de partida la pregunta ¿COMO INFLUYEN LOS PREJUICIOS EN NUESTRAS DECISIONES, COMPORTAMIENTOS Y FORMAS DE VER A LAS PERSONAS?",
     "Descripcion": "La respondemos a través de una mini serie en la que mostraremos las distintas perspectivas y puntos de vista sobre un mismo grupo de personas, evidenciando el funcionamiento de los prejuicios en las relaciones cotidianas.",
     "Impacto": "Cultural",
@@ -2440,9 +2442,9 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": 76,
+    "id": 'no',
     "Nombre": "Alma Nuclear",
-    "Especialidad": "Producción Artística",
+    "Especialidad": "Producción",
     "Slogan": "Queremos responder la pregunta ¿Cómo darnos cuenta si estamos sanando o si estamos ocultando el daño?",
     "Descripcion": "Realizamos un cortometraje ficcional en el que abordamos el tema del registro emocional propio, a través de un personaje que atraviesa distintas situaciones y no logra una gestión emocional adecuada.",
     "Impacto": "Cultural",
@@ -2504,7 +2506,7 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": '81-3',
+    "id": '81-3.jpg"',
     "Nombre": "MedEx",
     "Especialidad": "Informática",
     "Slogan": "MedEx: unifica historial clínico del paciente y lo sincroniza en tiempo real con médicos.",
@@ -2712,7 +2714,7 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": 97,
+    "id": '97.jpg"',
     "Nombre": "Olfatus Pretrolium",
     "Especialidad": "Mecatrónica",
     "Slogan": "Sistema de detección de combustible para expendedores en estaciones de servicio",
@@ -2764,7 +2766,7 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": 101,
+    "id": '101.jpg"',
     "Nombre": "ActiVelo",
     "Especialidad": "Mecatrónica",
     "Slogan": "Sistema económico de módulos LED y aplicación para entrenar el tiempo de reacción.",
@@ -3050,9 +3052,9 @@
     "sinergizado": "FALSE"
   },
   {
-    "id": 123,
+    "id": 'no',
     "Nombre": "Criollitas producciones",
-    "Especialidad": "Producción Artística",
+    "Especialidad": "Producción",
     "Slogan": "Partimos de la pregunta ¿Cómo afecta el modelo de éxito que nos enseñan de chicos, la forma en que percibimos a quienes no cumplen con ese modelo?",
     "Descripcion": "Se trata de un cortometraje que es un hibrido entre ficción y documental, en el que tratamos la problemática de los mandatos sociales como condicionantes a la hora de elegir una profesión y también como formadores de prejuicios.",
     "Impacto": "Cultural, Social",
